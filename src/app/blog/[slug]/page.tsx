@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { getAllPosts, getPost, formatDate } from "@/lib/posts";
 import { Tag } from "@/components/Tag";
 import { Button } from "@/components/Button";
+import { BlogToc } from "@/components/BlogToc";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -67,10 +68,16 @@ export default async function PostPage({
         )}
       </header>
 
-      <div
-        className="prose mt-12"
-        dangerouslySetInnerHTML={{ __html: post.html }}
-      />
+      <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_15rem]">
+        <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />
+        {post.headings.length >= 2 && (
+          <aside className="hidden lg:block">
+            <div className="sticky top-28">
+              <BlogToc headings={post.headings} />
+            </div>
+          </aside>
+        )}
+      </div>
 
       <aside className="mt-16 max-w-3xl rounded-2xl border border-line bg-surface p-8">
         <h2 className="font-display text-2xl font-semibold text-ink">

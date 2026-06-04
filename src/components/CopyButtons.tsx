@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
+import { toast } from "@/lib/toast";
 
 type Payload = { json: unknown; markdown: string; text: string };
 
@@ -14,6 +15,7 @@ export function CopyButtons({ payload }: { payload: Payload }) {
     try {
       await navigator.clipboard.writeText(String(value));
       setCopied(kind);
+      toast(`Copied as ${kind === "json" ? "JSON" : kind === "markdown" ? "Markdown" : "text"}`);
       setTimeout(() => setCopied(null), 1600);
     } catch {
       setCopied(null);

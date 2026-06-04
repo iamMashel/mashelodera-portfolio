@@ -244,6 +244,10 @@
   margin-top: 1.8em;
   margin-bottom: -0.5em;
 }
+.prose h2,
+.prose h3 {
+  scroll-margin-top: 6rem;
+}
 .prose a {
   color: var(--color-accent-strong);
   text-decoration: underline;

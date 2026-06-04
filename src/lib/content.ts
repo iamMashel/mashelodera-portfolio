@@ -188,3 +188,27 @@ export const faqs = [
     a: "Yes, regularly. Conference talks, team workshops, and cohort-based sessions on training and building with AI. There's a dedicated page with topics and formats.",
   },
 ] as const;
+
+// Engagement models, compared. No fixed prices: scope decides that. Edit freely.
+export type TierKey = "project" | "retainer" | "workshop";
+
+export const tierColumns: {
+  key: TierKey;
+  name: string;
+  tagline: string;
+  cta: string;
+  featured?: boolean;
+}[] = [
+  { key: "project", name: "Project", tagline: "A defined build, scoped and shipped.", cta: "Start a project" },
+  { key: "retainer", name: "Ongoing", tagline: "A standing AI partner for your team.", cta: "Let's talk", featured: true },
+  { key: "workshop", name: "Workshop", tagline: "Level up your team, fast.", cta: "Book a session" },
+];
+
+export const tierRows: { label: string; project: boolean | string; retainer: boolean | string; workshop: boolean | string }[] = [
+  { label: "Scoped & priced upfront", project: true, retainer: true, workshop: true },
+  { label: "Design & build", project: true, retainer: true, workshop: false },
+  { label: "AI training & evaluation", project: true, retainer: true, workshop: "add-on" },
+  { label: "Ongoing iteration & support", project: false, retainer: true, workshop: false },
+  { label: "Team upskilling", project: false, retainer: "optional", workshop: true },
+  { label: "Async updates + scheduled calls", project: true, retainer: true, workshop: true },
+];

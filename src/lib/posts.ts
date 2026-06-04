@@ -14,11 +14,39 @@ export type PostMeta = {
   readingMinutes: number;
 };
 
-export type Post = PostMeta & { html: string };
+export type Heading = { id: string; text: string; level: 2 | 3 };
+export type Post = PostMeta & { html: string; headings: Heading[] };
 
 function readingTime(text: string) {
   const words = text.trim().split(/\s+/).length;
   return Math.max(1, Math.round(words / 200));
+}
+
+function slugify(s: string) {
+  return (
+    s
+      .toLowerCase()
+      .replace(/<[^>]+>/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "section"
+  );
+}
+
+// Add stable ids to h2/h3 in the rendered HTML and collect them for a TOC.
+function withHeadingIds(html: string): { html: string; headings: Heading[] } {
+  const headings: Heading[] = [];
+  const seen = new Map<string, number>();
+  const out = html.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_m, lvl, inner) => {
+    const level = Number(lvl) as 2 | 3;
+    const text = inner.replace(/<[^>]+>/g, "").trim();
+    let id = slugify(text);
+    const n = seen.get(id) ?? 0;
+    seen.set(id, n + 1);
+    if (n > 0) id = `${id}-${n + 1}`;
+    headings.push({ id, text, level });
+    return `<h${lvl} id="${id}">${inner}</h${lvl}>`;
+  });
+  return { html: out, headings };
 }
 
 // YAML auto-parses an unquoted `date: 2026-04-08` into a Date object, so we
@@ -60,7 +88,8 @@ export async function getPost(slug: string): Promise<Post | null> {
   // Markdown here is author-controlled and rendered at build time, so marked's
   // output is trusted. If this ever renders user-submitted content, sanitize
   // the HTML (e.g. isomorphic-dompurify) before passing it to the DOM.
-  const html = await marked.parse(content);
+  const parsed = await marked.parse(content);
+  const { html, headings } = withHeadingIds(parsed);
   return {
     slug,
     title: data.title ?? slug,
@@ -69,6 +98,7 @@ export async function getPost(slug: string): Promise<Post | null> {
     tags: data.tags ?? [],
     readingMinutes: readingTime(content),
     html,
+    headings,
   };
 }
 

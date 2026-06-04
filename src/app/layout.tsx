@@ -7,6 +7,7 @@ import { KonamiEgg } from "@/components/KonamiEgg";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { CommandPalette } from "@/components/CommandPalette";
+import { Toaster } from "@/components/Toaster";
 import { site } from "@/lib/site";
 
 const geistSans = Geist({
@@ -88,6 +89,7 @@ export default function RootLayout({
         <Footer />
         <BackToTop />
         <CommandPalette />
+        <Toaster />
         <KonamiEgg />
       </body>
     </html>

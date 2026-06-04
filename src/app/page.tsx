@@ -3,6 +3,7 @@ import { TrustStrip } from "@/components/sections/TrustStrip";
 import { Pillars } from "@/components/sections/Pillars";
 import { Work } from "@/components/sections/Work";
 import { Services } from "@/components/sections/Services";
+import { ServiceTiers } from "@/components/sections/ServiceTiers";
 import { About } from "@/components/sections/About";
 import { Journey } from "@/components/sections/Journey";
 import { Engagement } from "@/components/sections/Engagement";
@@ -23,6 +24,7 @@ export default function Home() {
       <Work />
       <CTABand className="pb-8 md:pb-12" />
       <Services />
+      <ServiceTiers />
       <About />
       <Journey />
       <Engagement />

@@ -12,6 +12,7 @@ import {
   SubstackIcon,
 } from "@/components/icons/Brand";
 import { nav, personalPages, site, whatsappHref } from "@/lib/site";
+import { toast } from "@/lib/toast";
 
 type Item = {
   id: string;
@@ -61,7 +62,10 @@ const items: Item[] = [
     label: "Copy email address",
     group: "Actions",
     icon: Copy,
-    run: () => navigator.clipboard?.writeText(site.email),
+    run: () => {
+      navigator.clipboard?.writeText(site.email);
+      toast("Email address copied");
+    },
   },
   { id: "github", label: "GitHub", group: "Actions", icon: GithubIcon, run: go(site.socials.github) },
   { id: "linkedin", label: "LinkedIn", group: "Actions", icon: LinkedinIcon, run: go(site.socials.linkedin) },

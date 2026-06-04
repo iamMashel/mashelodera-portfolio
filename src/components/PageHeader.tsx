@@ -1,31 +1,25 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Reveal } from "@/components/Reveal";
 
 export function PageHeader({
   title,
   intro,
   meta,
-  back = { href: "/more", label: "Off the clock" },
 }: {
   title: string;
   intro?: string;
   meta?: string;
+  // `back` is accepted for backwards-compat but breadcrumbs supersede it.
   back?: { href: string; label: string } | null;
 }) {
   return (
     <header className="border-b border-line">
       <div className="container-page pb-12 pt-12 md:pt-16">
-        {back && (
-          <Reveal>
-            <Link
-              href={back.href}
-              className="mb-7 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-muted transition-colors hover:text-ink"
-            >
-              <ArrowLeft size={14} /> {back.label}
-            </Link>
-          </Reveal>
-        )}
+        <Reveal>
+          <div className="mb-7">
+            <Breadcrumbs />
+          </div>
+        </Reveal>
         <Reveal>
           <h1 className="h-hero text-[clamp(2.25rem,5vw,3.75rem)] text-ink">
             {title}
