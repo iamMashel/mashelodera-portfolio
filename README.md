@@ -53,6 +53,23 @@ Items marked `// DRAFT` are seed placeholders (example books, testimonials,
 some links) to replace with the real thing. Real, CV-backed numbers are not
 marked draft.
 
+## Contact form
+
+The contact form posts to a Next.js **Server Action** (`src/app/actions/contact.ts`)
+that emails each submission via [Resend](https://resend.com) — same-origin, so the
+strict CSP stays intact. It has client + server validation and a honeypot.
+
+To enable sending, set these env vars (locally in `.env.local`, and in Vercel →
+Settings → Environment Variables). See [`.env.example`](./.env.example):
+
+- `RESEND_API_KEY` — free key from resend.com.
+- `CONTACT_TO` — where submissions land (defaults to the site email).
+- `CONTACT_FROM` — sender. `onboarding@resend.dev` works with no domain setup;
+  switch to a verified-domain address later.
+
+Until `RESEND_API_KEY` is set, the form validates but politely tells visitors to
+use WhatsApp/email instead (it never silently fails).
+
 ## Deployment
 
 Deployed to **Vercel** with push-to-deploy from this repository: every push to
