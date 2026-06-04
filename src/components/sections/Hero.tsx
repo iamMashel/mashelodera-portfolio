@@ -90,10 +90,10 @@ export function Hero() {
             />
             <div className="overflow-hidden rounded-3xl border border-cream/15 bg-ink-invert-2 shadow-[0_40px_90px_-50px_rgba(0,0,0,0.8)]">
               <Image
-                src="/mashel.png"
-                alt={`${site.name}, AI specialist based in ${site.location}`}
-                width={1122}
-                height={1402}
+                src="/mashel.jpg"
+                alt={`${site.name}, AI specialist, in ${site.location}`}
+                width={900}
+                height={1125}
                 priority
                 sizes="(max-width: 1024px) 90vw, 460px"
                 className="w-full object-cover"

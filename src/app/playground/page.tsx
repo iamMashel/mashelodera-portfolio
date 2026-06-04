@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Play } from "lucide-react";
-import { funProjects, madeMeLaugh, anecdotes, podcasts } from "@/lib/personal";
+import { funProjects, madeMeLaugh, anecdotes, podcasts, frames } from "@/lib/personal";
 import { PageHeader } from "@/components/PageHeader";
 import { CTABand } from "@/components/CTABand";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -151,6 +151,38 @@ export default function PlaygroundPage() {
             <p className="mt-4 text-sm text-ink-muted">
               More going up as I save them.
             </p>
+          </div>
+
+          {/* A few frames */}
+          <div className="mt-20">
+            <SectionHeading
+              title="A few frames"
+              description="Life outside the screen: hikes, Sundays, and the occasional good light."
+            />
+            <RevealGroup
+              stagger={70}
+              className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4"
+            >
+              {frames.map((f) => (
+                <RevealItem key={f.src}>
+                  <figure className="group">
+                    <div className="overflow-hidden rounded-2xl border border-line">
+                      <Image
+                        src={f.src}
+                        alt={f.alt}
+                        width={1300}
+                        height={1733}
+                        sizes="(max-width: 640px) 45vw, 22vw"
+                        className="aspect-[3/4] w-full object-cover transition-transform duration-500 ease-[var(--ease-out-quart)] group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <figcaption className="mt-2.5 text-sm text-ink-muted">
+                      {f.caption}
+                    </figcaption>
+                  </figure>
+                </RevealItem>
+              ))}
+            </RevealGroup>
           </div>
 
           {/* Anecdotes */}

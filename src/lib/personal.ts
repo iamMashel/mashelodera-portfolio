@@ -154,6 +154,30 @@ export const podcasts = [
   { slug: "timothy-keller", name: "Timothy Keller Sermons", network: "Gospel in Life", blurb: "Thoughtful, generous sermons I come back to for the quieter questions." },
 ] as const;
 
+// A few real photos for the Playground gallery. Captions are editable.
+export const frames = [
+  {
+    src: "/photos/hike.jpg",
+    alt: "Hikers on a green hillside trail looking out over a misty valley",
+    caption: "A hike in November. A lot happened that day; I'll tell that story another time.",
+  },
+  {
+    src: "/photos/church-1.jpg",
+    alt: "Mashel standing on green church grounds with the city behind",
+    caption: "Church grounds. The kind of quiet that resets you.",
+  },
+  {
+    src: "/photos/church-2.jpg",
+    alt: "Mashel at a church compound",
+    caption: "Sundays, mostly.",
+  },
+  {
+    src: "/photos/church-3.jpg",
+    alt: "Mashel at a church compound",
+    caption: "Somewhere worth standing still.",
+  },
+] as const;
+
 // ---- /uses ------------------------------------------------------------------
 export const uses = [
   {

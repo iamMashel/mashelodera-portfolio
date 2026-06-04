@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { skillGroups, stats } from "@/lib/content";
 import { site } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
@@ -7,13 +8,28 @@ export function About() {
     <section id="about" className="section-pad scroll-mt-20">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <Reveal>
+          <Reveal className="lg:sticky lg:top-28 lg:self-start">
             <h2 className="h2 text-ink">
               A scientist who trains AI, and an engineer who ships it.
             </h2>
             <p className="mt-4 font-display text-xl text-accent-strong">
               {site.motto}
             </p>
+            <figure className="mt-8">
+              <div className="overflow-hidden rounded-2xl border border-line">
+                <Image
+                  src="/photos/building.jpg"
+                  alt="Mashel with two friends in front of a multi-monitor coding setup"
+                  width={1500}
+                  height={1125}
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  className="w-full object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 text-sm text-ink-muted">
+                Building toward AGI with friends, one piece at a time. Nairobi.
+              </figcaption>
+            </figure>
           </Reveal>
 
           <div>
