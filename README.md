@@ -1,14 +1,17 @@
-# Mashel Odera — Portfolio
+# Mashel Odera — Personal site
 
-The personal portfolio of **Mashel Odera**, a frontend developer & UI/UX designer
-building AI, SaaS, healthtech, and fintech products. It showcases selected case
-studies, services, and writing.
+The personal brand and portfolio of **Mashel Odera**, an AI specialist in Nairobi
+who **trains AI, builds with it, and teaches it**. The site sells the work
+(AI solutions, AI training & evaluation, frontend, teaching, growth), proves it
+with real metrics, and stays human with an "off the clock" world (now, bookshelf,
+playground, uses).
 
 **Tech:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · deployed on Vercel.
 
-**Design:** a bright Swiss-product aesthetic — pure-white canvas, near-black ink,
-and a single magenta accent — verified to WCAG 2.2 AA. The full visual system and
-product strategy live in [`DESIGN.md`](./DESIGN.md) and [`PRODUCT.md`](./PRODUCT.md).
+**Design:** "Studio Warm" — a committed clay/terracotta brand on warm neutrals,
+deep espresso-clay drenched hero/footer, Bricolage Grotesque display + Geist text.
+Verified toward WCAG 2.2 AA. The full visual system and positioning live in
+[`DESIGN.md`](./DESIGN.md) and [`PRODUCT.md`](./PRODUCT.md).
 
 ## Getting started
 
@@ -20,43 +23,41 @@ npm run start      # serve the production build
 npm run lint       # eslint
 ```
 
-## Project structure
+## Pages
 
 ```
-src/
-  app/                       # routes (App Router)
-    page.tsx                 # home — hero, work, services, about, process, testimonials, writing, contact
-    work/[slug]/page.tsx     # case studies — Problem → Constraints → Approach → Results → Tradeoffs
-    blog/                    # writing index + markdown-driven post template
-    sitemap.ts · robots.ts   # SEO
-    icon.svg                 # favicon (monogram)
-  components/                # Nav, Footer, Button, Reveal, WorkCard, sections/*, icons/Brand
-  lib/
-    site.ts                  # name, socials, email, résumé, domain
-    projects.ts              # case-study content
-    content.ts               # services, skills, process, testimonials
-    posts.ts                 # blog markdown loader
-content/blog/*.md            # blog posts (markdown + frontmatter)
-public/                      # images and the résumé PDF
+/                  home — hero, trust strip, Train/Build/Teach, work, services,
+                   about, journey, engagement, testimonials, writing, contact
+/work/[slug]       case studies (Onagi, BizFlow AI, Vibe Coding Snake)
+/blog · /blog/...  writing
+/more              "Off the clock" index, linking to:
+/now               what I'm focused on this month
+/bookshelf         reading + honest takes
+/playground        side projects, things that made me laugh, anecdotes
+/uses              tools, languages, and gear
 ```
 
-Site-wide details (name, links, email, résumé, domain) are centralized in
-[`src/lib/site.ts`](./src/lib/site.ts) — everything else reads from there.
+## Editing content
 
-## Content
+Everything lives in plain data files — no CMS:
 
-- **Case studies** are defined in [`src/lib/projects.ts`](./src/lib/projects.ts).
-- **Services, skills, process, and testimonials** live in [`src/lib/content.ts`](./src/lib/content.ts).
-- **Blog posts** are markdown files in [`content/blog/`](./content/blog); add one by
-  creating a new `.md` file with the same frontmatter shape.
+- [`src/lib/site.ts`](./src/lib/site.ts) — name, contact (WhatsApp, email,
+  booking), socials, the rotating "words of wisdom".
+- [`src/lib/content.ts`](./src/lib/content.ts) — pillars, metrics, services,
+  skills, journey, testimonials.
+- [`src/lib/projects.ts`](./src/lib/projects.ts) — case studies.
+- [`src/lib/personal.ts`](./src/lib/personal.ts) — now / bookshelf / playground / uses.
+- [`content/blog/*.md`](./content/blog) — blog posts (markdown + frontmatter).
+
+Items marked `// DRAFT` are seed placeholders (example books, testimonials,
+some links) to replace with the real thing. Real, CV-backed numbers are not
+marked draft.
 
 ## Deployment
 
-Deployed to **Vercel** with push-to-deploy from this repository — every push to
-`main` ships to production, and pull requests get preview URLs automatically.
-
-Security headers (CSP, HSTS, X-Frame-Options, and friends) are configured in
-[`next.config.ts`](./next.config.ts) and apply on every response.
+Deployed to **Vercel** with push-to-deploy from this repository: every push to
+`main` ships to production, and pull requests get preview URLs. Security headers
+(CSP, HSTS, X-Frame-Options) are configured in [`next.config.ts`](./next.config.ts).
 
 ## License
 

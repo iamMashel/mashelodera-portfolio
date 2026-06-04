@@ -1,74 +1,90 @@
 # Design
 
-Visual system for the Mashel Odera portfolio. Aesthetic lane: **Confident Light / Swiss-product** — bright white canvas, oversized confident typography, one saturated magenta accent, generous space, precise motion. Verified WCAG 2.2 AA throughout.
+Visual system for the Mashel Odera personal site. Aesthetic lane: **Studio Warm /
+Africa-rooted** — a committed clay/terracotta brand on warm neutrals, deep
+espresso-clay drenched bands (hero, contact, footer), oversized confident type,
+precise motion. Warm and human, but precise. Verified toward WCAG 2.2 AA.
+
+Anti-slop posture: deliberately *not* the generic dark dev-portfolio, *not*
+editorial-serif restraint, and *not* a beige AI body. The page background sits
+above the cream band (L > 0.97) so it reads clean-white; warmth is carried by the
+clay accent, the drenched dark sections, and the copy.
 
 ## Theme
 
-Light, single theme (no dark mode for v1; the brand IS bright white). The mood lives in the magenta accent and the typography, not in a tinted surface. Pure `#ffffff` canvas, near-black ink, one hot magenta doing all the brand work — a "creative-tool" hue (Figma/Linear-adjacent energy) that separates this from every navy/green dev portfolio.
+Single light theme with deep-clay drenched accent bands. Body is a clean warm-white,
+ink is a warm near-black, and clay does the brand work. The dark hero/contact/footer
+("surface-deep") give the clay real surface area without tinting the reading canvas.
 
 ## Color
 
-All values OKLCH. Strategy: **Restrained-with-a-loud-accent** — neutral architecture, magenta used with intent (CTAs, links, marks, one hero accent), never sprinkled.
+All values OKLCH. Strategy: **Committed** — one saturated clay carries the hero,
+contact, and footer; neutrals are warm; the accent is used with intent.
 
-| Role | Token | OKLCH | Hex | Use |
-|---|---|---|---|---|
-| Canvas | `--bg` | `oklch(1 0 0)` | `#ffffff` | Page background. Pure white, no hidden warmth. |
-| Surface | `--surface` | `oklch(0.975 0 0)` | `#f7f7f7` | Subtle panels, alternating sections. |
-| Surface-2 | `--surface-2` | `oklch(0.955 0 0)` | `#f1f1f1` | Nested/hover surfaces. |
-| Ink | `--ink` | `oklch(0.17 0 0)` | `#0f0f0f` | Headings + body. 19:1 on white. |
-| Ink-muted | `--ink-muted` | `oklch(0.44 0 0)` | `#525252` | Secondary text. 7.8:1 on white (comfortably AA). |
-| Line | `--line` | `oklch(0.90 0 0)` | `#dedede` | Hairline borders, dividers. |
-| Accent | `--accent` | `oklch(0.55 0.235 351)` | `#cb0082` | Primary magenta. Buttons (white text 5.4:1), active states. |
-| Accent-strong | `--accent-strong` | `oklch(0.50 0.22 351)` | `#b50072` | Text links / accent text on white (6.6:1). |
-| Accent-bright | `--accent-bright` | `oklch(0.65 0.24 350)` | `#f034a3` | Decorative only (marks, gradients-as-fill, hero block) — never text. |
-| Accent-wash | `--accent-wash` | `oklch(0.965 0.03 351)` | `#ffecf6` | Tinted highlight backgrounds, selection. |
+| Role | Token | OKLCH | Use |
+|---|---|---|---|
+| Canvas | `--color-bg` | `oklch(0.992 0.004 72)` | Page background. Clean warm-white, above the beige band. |
+| Surface | `--color-surface` | `oklch(0.971 0.008 66)` | Alternating panels. |
+| Surface-2 | `--color-surface-2` | `oklch(0.948 0.012 60)` | Nested/hover surfaces. |
+| Ink | `--color-ink` | `oklch(0.225 0.015 48)` | Headings + body. Warm near-black. |
+| Ink-muted | `--color-ink-muted` | `oklch(0.468 0.019 46)` | Secondary text (AA on canvas). |
+| Line | `--color-line` | `oklch(0.888 0.013 62)` | Hairline borders, grid gaps. |
+| Ink-invert | `--color-ink-invert` | `oklch(0.252 0.05 40)` | Drenched dark bands (hero, contact, footer). |
+| Ink-invert-2 | `--color-ink-invert-2` | `oklch(0.31 0.052 42)` | Raised surfaces on dark. |
+| Cream | `--color-cream` | `oklch(0.955 0.013 80)` | Text on dark bands. |
+| Cream-muted | `--color-cream-muted` | `oklch(0.795 0.024 72)` | Secondary text on dark. |
+| Accent | `--color-accent` | `oklch(0.575 0.158 43)` | Clay brand: buttons, fills, marks. |
+| Accent-strong | `--color-accent-strong` | `oklch(0.472 0.146 40)` | Accent-as-text on light (AA), button bg. |
+| Accent-bright | `--color-accent-bright` | `oklch(0.66 0.176 47)` | Highlights on dark (e.g. hero verbs), hovers. |
+| Accent-wash | `--color-accent-wash` | `oklch(0.948 0.038 52)` | Tinted highlight backgrounds, selection. |
+| Ochre | `--color-ochre` | `oklch(0.8 0.116 78)` | Supporting warm tone, sparing, dark surfaces only. |
 
-Contrast rule: muted text never lighter than `--ink-muted`; accent-as-text always uses `--accent-strong` or darker.
+Contrast rule: muted text never lighter than `--color-ink-muted`; accent-as-text on
+light always uses `--color-accent-strong` or darker; `--color-accent-bright` is for
+dark surfaces and decoration, never small text on white.
 
 ## Typography
 
-Three families, paired on a contrast axis (idiosyncratic display vs neutral body), mono reserved for genuine technical labels (Mashel is technical — it's signal, not costume).
+Three families (display + body + mono). Identity preserved from the original build.
 
-- **Display** — *Bricolage Grotesque* (variable, 400–800). Headlines, hero, section titles. Characterful humanist grotesque with ink traps; carries the "confident" voice.
-- **Body / UI** — *Geist Sans*. Neutral, highly legible workhorse for all running text and interface. Coherent with the Next.js/Vercel build story.
-- **Mono** — *Geist Mono*. Small technical labels only: tech tags, metadata, kbd-style accents. Used sparingly per impeccable brand bans.
+- **Display** — *Bricolage Grotesque* (variable, 400–800). Headlines, hero, section
+  titles. Characterful humanist grotesque; carries the warm, confident voice.
+- **Body / UI** — *Geist Sans*. Neutral, highly legible workhorse.
+- **Mono** — *Geist Mono*. Small technical labels, kickers, metadata. Sparing.
 
-Type scale (fluid `clamp()`, ≥1.25 ratio; display ceiling ≤ 6rem; letter-spacing floor ≥ -0.04em):
-
-| Step | Size | Notes |
-|---|---|---|
-| Hero | `clamp(2.75rem, 6vw, 5.25rem)` | Bricolage 600–700, tracking -0.03em, `text-wrap: balance` |
-| H2 | `clamp(2rem, 4vw, 3.25rem)` | Bricolage 600, balance |
-| H3 | `clamp(1.35rem, 2.2vw, 1.8rem)` | Bricolage 600 |
-| Body-lg | `1.125rem` | Geist, lh 1.6, intro paragraphs |
-| Body | `1.0625rem` (17px) | Geist, lh 1.6, measure ≤ 72ch |
-| Small | `0.875rem` | Captions, meta |
-| Label | `0.75rem` | Geist Mono, uppercase, tracking 0.08em, sparing |
-
-`text-wrap: balance` on h1–h3; `text-wrap: pretty` on long prose.
+Fluid `clamp()` scale, ≥1.25 ratio, display ceiling ≤ ~5.25rem, letter-spacing
+floor ≥ -0.035em. `text-wrap: balance` on h1–h3; `text-wrap: pretty` on prose.
 
 ## Layout
 
-- Container max `1180px`, gutter `clamp(1.25rem, 5vw, 2.5rem)`.
-- Prose measure capped `~72ch`.
-- Section rhythm via fluid vertical padding `clamp(4rem, 10vw, 8rem)`, varied (not uniform) for cadence.
-- Grid for 2D (work grid `repeat(auto-fit, minmax(300px, 1fr))`), flex for 1D rows. Asymmetric hero (text-left, accent element offset).
-- Semantic z-index scale: `--z-dropdown:10; --z-sticky:20; --z-backdrop:30; --z-modal:40; --z-toast:50`.
-- Cards used only where they're the right affordance (work grid, blog list). No nested cards, no side-stripe borders.
+- Container max `1180px`, gutter `clamp(1.25rem, 5vw, 2.5rem)`, prose ≤ ~72ch.
+- Section rhythm via fluid padding `clamp(4rem, 10vw, 8rem)`; alternate canvas /
+  surface / drenched-dark for cadence.
+- Hairline grids (`gap-px` over `bg-line`) for pillars, services, personal cards.
+- No side-stripe borders, no nested cards. Numbered markers only where a section is a
+  genuine sequence (the 3-step engagement).
 
 ## Motion
 
-Library: `motion` (Framer Motion). Easing: ease-out-expo `cubic-bezier(0.16, 1, 0.3, 1)`; no bounce/elastic.
+Library: the in-repo `Reveal` / `RevealGroup` (IntersectionObserver). Easing
+ease-out-expo `cubic-bezier(0.16, 1, 0.3, 1)`; no bounce.
 
-- **Hero**: orchestrated load — headline lines stagger up + fade, accent element scales/clips in. One signature moment.
-- **Sections**: reveal-on-scroll as *enhancement* of an already-visible default (no visibility gating). Staggered children where a list earns it; not a uniform fade on every block.
-- **Interactive**: buttons/links — accent underline grow, subtle lift; magnetic CTA optional. Focus-visible always present.
-- **Reduced motion**: every animation has a `prefers-reduced-motion: reduce` path (crossfade or instant). Content never depends on a transition to appear.
+- Content is visible by default; JS arms it hidden before paint only when motion is
+  allowed, then reveals on scroll. Safe for no-JS, crawlers, reduced-motion.
+- Hero: staggered headline lines + portrait. One signature load.
+- Every animation has a `prefers-reduced-motion: reduce` path; the rotating footer
+  wisdom holds still under reduced motion.
 
-## Components
+## Sections / components
 
-Nav (sticky, condenses on scroll), Button (primary magenta / secondary outline / ghost), Tag (mono pill), WorkCard (letterbox image + outcome line + tags), CaseStudy layout (problem/constraints/solution/results/tradeoffs), StatPair, Testimonial, BlogCard, PostLayout (prose), Footer (nav + socials + availability), AvailabilityBadge (dot + "open to work").
+Hero (drenched, spike + portrait + WhatsApp CTA), TrustStrip (client wordmarks),
+Pillars (Train/Build/Teach), WorkCard + ProjectVisual (real screenshot or generated
+health/studio/ai/game preview), Services menu, About (story + stats + skills),
+Journey (timeline), Engagement (3 steps), Testimonials, WritingTeaser, PersonalTeaser,
+Newsletter (Substack), Contact (drenched, all channels), Footer (drenched, rotating
+wisdom + socials). Personal pages: /now, /bookshelf, /playground, /uses, /more.
 
 ## Iconography
 
-`lucide-react`, single set, 1.5px stroke. No mixing sets, no large rounded-corner icon tiles above every heading.
+`lucide-react`, 1.5–1.75px stroke. Brand marks (GitHub, LinkedIn, X, WhatsApp,
+Instagram, Substack) as inline single-color SVG in `components/icons/Brand`.
