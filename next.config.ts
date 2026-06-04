@@ -1,17 +1,22 @@
 import type { NextConfig } from "next";
 
 // Content Security Policy. The site loads no third-party scripts, fonts, or
-// images — everything is self-hosted (next/font serves fonts from /_next,
+// images: everything is self-hosted (next/font serves fonts from /_next,
 // images come from /public). 'unsafe-inline' on script/style is required by
 // Next's hydration bootstrap and Tailwind's injected styles; a nonce-based
 // policy is a future hardening step if an API/runtime is added.
+//
+// In development only, Next's dev client (Turbopack / React RSC) needs
+// 'unsafe-eval' and a websocket connection for HMR. Production stays strict.
+const isDev = process.env.NODE_ENV !== "production";
+
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self'${isDev ? " ws: http://localhost:*" : ""}`,
   "form-action 'self'",
   "base-uri 'self'",
   "frame-ancestors 'none'",
