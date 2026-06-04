@@ -21,6 +21,14 @@ function readingTime(text: string) {
   return Math.max(1, Math.round(words / 200));
 }
 
+// YAML auto-parses an unquoted `date: 2026-04-08` into a Date object, so we
+// can't assume a string. Normalize both forms to an ISO yyyy-mm-dd string.
+function toISODate(value: unknown): string {
+  if (!value) return "";
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  return String(value).slice(0, 10);
+}
+
 function fileToMeta(file: string): PostMeta {
   const slug = file.replace(/\.md$/, "");
   const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
@@ -29,7 +37,7 @@ function fileToMeta(file: string): PostMeta {
     slug,
     title: data.title ?? slug,
     excerpt: data.excerpt ?? "",
-    date: data.date ? String(data.date).slice(0, 10) : "",
+    date: toISODate(data.date),
     tags: data.tags ?? [],
     readingMinutes: readingTime(content),
   };
@@ -57,7 +65,7 @@ export async function getPost(slug: string): Promise<Post | null> {
     slug,
     title: data.title ?? slug,
     excerpt: data.excerpt ?? "",
-    date: data.date ? String(data.date).slice(0, 10) : "",
+    date: toISODate(data.date),
     tags: data.tags ?? [],
     readingMinutes: readingTime(content),
     html,
