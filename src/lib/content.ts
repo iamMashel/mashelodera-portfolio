@@ -161,3 +161,30 @@ export const testimonials = [
     role: "Founder, early-stage startup",
   },
 ] as const;
+
+export const faqs = [
+  {
+    q: "What kind of work do you take on?",
+    a: "AI features and agents, RAG systems, model training and evaluation, full-stack and frontend builds, and the occasional workshop. If it sits between 'understands the model' and 'ships a real product', it's my sweet spot.",
+  },
+  {
+    q: "Do you work with teams outside Kenya?",
+    a: "Yes. I'm Nairobi-based and work remotely with teams worldwide. Most of my training work has been remote for US companies, so async collaboration across time zones is normal for me.",
+  },
+  {
+    q: "Can you really both train models and build the product?",
+    a: "That's the whole point. I've done RLHF, SFT, and evaluation on frontier models, and I ship agentic apps and frontends. You get one person who understands both sides instead of a handoff that loses the plot.",
+  },
+  {
+    q: "How do you charge?",
+    a: "Project-based, scoped and priced before any work starts. For ongoing work I'll set up a simple retainer. No vague hourly black holes; you know the number up front.",
+  },
+  {
+    q: "How quickly can you start?",
+    a: "Usually within a week or two, depending on current commitments. Send me the rough shape of the work and I'll be honest about timing and whether I'm the right fit.",
+  },
+  {
+    q: "Do you do talks and workshops?",
+    a: "Yes, regularly. Conference talks, team workshops, and cohort-based sessions on training and building with AI. There's a dedicated page with topics and formats.",
+  },
+] as const;

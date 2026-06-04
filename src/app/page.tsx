@@ -10,6 +10,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { WritingTeaser } from "@/components/sections/WritingTeaser";
 import { PersonalTeaser } from "@/components/sections/PersonalTeaser";
 import { Newsletter } from "@/components/Newsletter";
+import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { CTABand } from "@/components/CTABand";
 
@@ -34,6 +35,7 @@ export default function Home() {
       <WritingTeaser />
       <PersonalTeaser />
       <Newsletter />
+      <FAQ />
       <Contact />
     </>
   );

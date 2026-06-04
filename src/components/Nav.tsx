@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, Mail } from "lucide-react";
+import { Menu, X, Mail, Search } from "lucide-react";
 import {
   WhatsappIcon,
   GithubIcon,
@@ -139,7 +139,17 @@ export function Nav() {
             })}
           </ul>
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-2 lg:flex">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
+              aria-label="Open command menu"
+              title="Command menu"
+              className="inline-flex h-10 items-center gap-2 rounded-full border border-cream/20 px-3 text-sm text-cream-muted transition-colors hover:border-cream/40 hover:text-cream"
+            >
+              <Search size={15} />
+              <kbd className="font-mono text-[0.72rem]">⌘K</kbd>
+            </button>
             <Link
               href="/#contact"
               className="inline-flex h-10 items-center rounded-full bg-accent px-5 text-[0.95rem] font-medium text-cream transition-colors hover:bg-accent-bright"
@@ -148,15 +158,25 @@ export function Nav() {
             </Link>
           </div>
 
-          <button
-            type="button"
-            className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-cream lg:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="flex items-center gap-1 lg:hidden">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
+              aria-label="Open command menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-cream"
+            >
+              <Search size={20} />
+            </button>
+            <button
+              type="button"
+              className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-cream"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </nav>
       </div>
 

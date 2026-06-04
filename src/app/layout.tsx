@@ -4,6 +4,9 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { KonamiEgg } from "@/components/KonamiEgg";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
+import { CommandPalette } from "@/components/CommandPalette";
 import { site } from "@/lib/site";
 
 const geistSans = Geist({
@@ -77,11 +80,14 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <ScrollProgress />
         <Nav />
         <main id="main" className="flex-1">
           {children}
         </main>
         <Footer />
+        <BackToTop />
+        <CommandPalette />
         <KonamiEgg />
       </body>
     </html>
