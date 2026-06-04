@@ -17,7 +17,7 @@ export function PersonalTeaser() {
           stagger={80}
           className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4"
         >
-          {personalPages.map((p) => (
+          {personalPages.slice(0, 8).map((p) => (
             <RevealItem key={p.href}>
               <Link
                 href={p.href}
@@ -38,6 +38,16 @@ export function PersonalTeaser() {
             </RevealItem>
           ))}
         </RevealGroup>
+
+        <div className="mt-8 border-t border-line pt-6">
+          <Link
+            href="/more"
+            className="inline-flex items-center gap-2 font-medium text-ink transition-colors hover:text-accent-strong"
+          >
+            Explore everything off the clock
+            <ArrowUpRight size={18} />
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Star } from "lucide-react";
 import { currentlyReading, haveRead, type Book } from "@/lib/personal";
 import { PageHeader } from "@/components/PageHeader";
+import { CTABand } from "@/components/CTABand";
 import { SectionHeading } from "@/components/SectionHeading";
 import { RevealGroup, RevealItem } from "@/components/Reveal";
 
@@ -70,6 +71,7 @@ export default function BookshelfPage() {
           </div>
         </div>
       </section>
+      <CTABand className="pb-24" />
     </>
   );
 }

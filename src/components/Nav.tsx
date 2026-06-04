@@ -51,7 +51,7 @@ export function Nav() {
 
   return (
     <header className="surface-deep sticky top-0 z-[var(--z-sticky)]">
-      {/* Utility bar — contact + socials. Collapses on scroll; desktop only. */}
+      {/* Utility bar, contact + socials. Collapses on scroll; desktop only. */}
       <div
         className={cn(
           "hidden overflow-hidden border-b border-cream/10 bg-ink-invert transition-all duration-300 md:block",

@@ -79,6 +79,36 @@ export const personalPages = [
     blurb: "The tools, gear, and stack behind the work.",
     emoji: "🛠️",
   },
+  {
+    href: "/lab",
+    label: "Lab",
+    blurb: "Small interactive experiments you can actually play with.",
+    emoji: "🔬",
+  },
+  {
+    href: "/timeline",
+    label: "Timeline",
+    blurb: "The long way round: biology to game dev to frontier AI.",
+    emoji: "🧬",
+  },
+  {
+    href: "/interesting",
+    label: "Interesting",
+    blurb: "A curated stash of things on the internet I love.",
+    emoji: "🔗",
+  },
+  {
+    href: "/speaking",
+    label: "Speaking",
+    blurb: "Talks and workshops I give. Book me for yours.",
+    emoji: "🎤",
+  },
+  {
+    href: "/colophon",
+    label: "Colophon",
+    blurb: "How this very site is built, and why.",
+    emoji: "📐",
+  },
 ] as const;
 
 // Rotating "words of wisdom", the first is the real motto; the rest are

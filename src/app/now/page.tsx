@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { now, nowUpdated } from "@/lib/personal";
 import { PageHeader } from "@/components/PageHeader";
+import { CTABand } from "@/components/CTABand";
 import { RevealGroup, RevealItem } from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function NowPage() {
           </RevealGroup>
         </div>
       </section>
+      <CTABand className="pb-24" />
     </>
   );
 }

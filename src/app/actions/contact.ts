@@ -74,7 +74,7 @@ export async function sendContact(
           "",
           message,
           "",
-          "— Sent from the contact form on mashelodera-portfolio.vercel.app",
+          "Sent from the contact form on mashelodera-portfolio.vercel.app",
         ]
           .filter(Boolean)
           .join("\n"),
@@ -94,7 +94,7 @@ export async function sendContact(
 
     return {
       status: "success",
-      message: "Thanks — your message is on its way. I usually reply within a day.",
+      message: "Thanks, your message is on its way. I usually reply within a day.",
     };
   } catch (err) {
     console.error("[contact] send failed", err);

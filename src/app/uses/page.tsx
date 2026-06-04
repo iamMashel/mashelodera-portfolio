@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { uses } from "@/lib/personal";
 import { PageHeader } from "@/components/PageHeader";
+import { CTABand } from "@/components/CTABand";
 import { RevealGroup, RevealItem } from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function UsesPage() {
           </RevealGroup>
         </div>
       </section>
+      <CTABand className="pb-24" />
     </>
   );
 }

@@ -127,7 +127,7 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Honeypot — hidden from people, catnip for bots. */}
+        {/* Honeypot, hidden from people, catnip for bots. */}
         <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
           <label htmlFor="company">Company (leave blank)</label>
           <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />

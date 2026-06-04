@@ -11,6 +11,7 @@ import { WritingTeaser } from "@/components/sections/WritingTeaser";
 import { PersonalTeaser } from "@/components/sections/PersonalTeaser";
 import { Newsletter } from "@/components/Newsletter";
 import { Contact } from "@/components/sections/Contact";
+import { CTABand } from "@/components/CTABand";
 
 export default function Home() {
   return (
@@ -19,11 +20,17 @@ export default function Home() {
       <TrustStrip />
       <Pillars />
       <Work />
+      <CTABand className="pb-8 md:pb-12" />
       <Services />
       <About />
       <Journey />
       <Engagement />
       <Testimonials />
+      <CTABand
+        className="pb-8 md:pb-12"
+        title="Ready to make something real?"
+        subtitle="The fastest way to know if we're a fit is a quick message. I'll be honest about whether I'm the right person."
+      />
       <WritingTeaser />
       <PersonalTeaser />
       <Newsletter />

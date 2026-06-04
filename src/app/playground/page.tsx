@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, Play } from "lucide-react";
 import { funProjects, madeMeLaugh, anecdotes } from "@/lib/personal";
 import { PageHeader } from "@/components/PageHeader";
+import { CTABand } from "@/components/CTABand";
 import { SectionHeading } from "@/components/SectionHeading";
 import { RevealGroup, RevealItem } from "@/components/Reveal";
 
@@ -133,6 +134,7 @@ export default function PlaygroundPage() {
           </div>
         </div>
       </section>
+      <CTABand className="pb-24" />
     </>
   );
 }
