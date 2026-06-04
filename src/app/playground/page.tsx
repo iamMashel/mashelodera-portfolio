@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Play } from "lucide-react";
-import { funProjects, madeMeLaugh, anecdotes } from "@/lib/personal";
+import { funProjects, madeMeLaugh, anecdotes, podcasts } from "@/lib/personal";
 import { PageHeader } from "@/components/PageHeader";
 import { CTABand } from "@/components/CTABand";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -65,6 +66,43 @@ export default function PlaygroundPage() {
               );
             })}
           </RevealGroup>
+
+          {/* In my ears */}
+          <div className="mt-20">
+            <SectionHeading
+              title="In my ears"
+              description="The podcasts on rotation right now, from markets to philosophy to a guilty-pleasure dating segment."
+            />
+            <RevealGroup
+              stagger={70}
+              className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {podcasts.map((p) => (
+                <RevealItem
+                  key={p.slug}
+                  className="flex gap-4 rounded-2xl border border-line bg-bg p-4 transition-colors hover:bg-accent-wash/40"
+                >
+                  <Image
+                    src={`/podcasts/${p.slug}.jpg`}
+                    alt={`${p.name} cover art`}
+                    width={72}
+                    height={72}
+                    className="h-18 w-18 shrink-0 rounded-xl border border-line object-cover"
+                    style={{ height: 72, width: 72 }}
+                  />
+                  <div className="min-w-0">
+                    <h3 className="font-display font-semibold leading-tight text-ink">
+                      {p.name}
+                    </h3>
+                    <p className="font-mono text-[0.7rem] uppercase tracking-wider text-accent-strong">
+                      {p.network}
+                    </p>
+                    <p className="mt-1.5 text-sm text-ink-muted">{p.blurb}</p>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
 
           {/* Made me laugh */}
           <div className="mt-20">

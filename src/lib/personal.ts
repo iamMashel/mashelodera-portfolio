@@ -24,12 +24,17 @@ export const now = [
   {
     emoji: "📚",
     label: "Reading",
-    body: "The Alignment Problem by Brian Christian. (See the full shelf for what's next.)", // DRAFT
+    body: "The Alignment Problem by Brian Christian. (See the full shelf for what's next.)",
+  },
+  {
+    emoji: "🎧",
+    label: "Listening",
+    body: "A rotation of WSJ, No Stupid Questions, Philosophize This, TED Talks Daily, and Tim Keller sermons. The full set lives on my Playground.",
   },
   {
     emoji: "🏑",
     label: "Off-screen",
-    body: "Playing striker in weekend hockey, and slowly losing to friends at competitive programming on HackerRank.",
+    body: "Striker in weekend hockey, replaying Fez for the hundredth time, drawing when I can, and losing to friends on HackerRank.",
   },
 ] as const;
 
@@ -139,6 +144,16 @@ export const anecdotes = [
   },
 ] as const;
 
+// Podcasts — cover art in /public/podcasts/<slug>.jpg (from the iTunes API).
+export const podcasts = [
+  { slug: "wsj", name: "WSJ What's News", network: "The Wall Street Journal", blurb: "My morning download on markets and the world." },
+  { slug: "no-stupid-questions", name: "No Stupid Questions", network: "Freakonomics Radio Network", blurb: "Curiosity as a sport. Angela Duckworth and Mike Maughan turning over everyday questions." },
+  { slug: "philosophize-this", name: "Philosophize This!", network: "Stephen West", blurb: "The history of ideas, explained like a friend who actually read the books." },
+  { slug: "ted-talks-daily", name: "TED Talks Daily", network: "TED", blurb: "A daily hit of someone smart, excited about one thing." },
+  { slug: "second-date-update", name: "Second Date Update", network: "Brooke and Jeffrey", blurb: "My guilty pleasure. Messy, funny, very human." },
+  { slug: "timothy-keller", name: "Timothy Keller Sermons", network: "Gospel in Life", blurb: "Thoughtful, generous sermons I come back to for the quieter questions." },
+] as const;
+
 // ---- /uses ------------------------------------------------------------------
 export const uses = [
   {
@@ -173,6 +188,8 @@ export const uses = [
     items: [
       { name: "Blender", note: "Leftover from game-dev days; still fun." },
       { name: "A hockey stick", note: "Striker. Weekends only." },
+      { name: "Fez", note: "The puzzle-platformer I keep coming back to." },
+      { name: "A sketchbook", note: "Drawing and making art to think with my hands." },
       { name: "HackerRank", note: "Competitive programming to stay sharp." },
     ],
   },
