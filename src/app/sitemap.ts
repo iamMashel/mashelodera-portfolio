@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/bookshelf",
     "/playground",
     "/uses",
+    "/recommends",
     "/privacy",
   ].map((path) => ({
     url: `${base}${path}`,

@@ -104,6 +104,12 @@ export const personalPages = [
     emoji: "🎤",
   },
   {
+    href: "/recommends",
+    label: "Recommends",
+    blurb: "Stuff I've tried and rated, plus friends whose work I vouch for.",
+    emoji: "⭐",
+  },
+  {
     href: "/colophon",
     label: "Colophon",
     blurb: "How this very site is built, and why.",

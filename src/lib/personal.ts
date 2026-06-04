@@ -229,3 +229,32 @@ export const uses = [
     ],
   },
 ] as const;
+
+// ---- /recommends ------------------------------------------------------------
+// Honest takes on things I've used. DRAFT: these are starter opinions — swap in
+// your real ones (and add/remove freely).
+export type Verdict = "loved" | "fine" | "pass";
+
+export const reviews: {
+  name: string;
+  category: string;
+  verdict: Verdict;
+  take: string;
+}[] = [
+  { name: "Claude", category: "AI", verdict: "loved", take: "My default thinking partner. The one I reach for when the problem is still fuzzy." },
+  { name: "Obsidian", category: "Apps", verdict: "loved", take: "Where my notes actually compound. Plain files I'll still own in ten years." },
+  { name: "Docker", category: "Dev tools", verdict: "loved", take: "Reproducibility in a box. 'Works on my machine' finally stopped being a problem." },
+  { name: "Tailwind CSS", category: "Dev tools", verdict: "loved", take: "Once it clicks, you stop naming things and start shipping. This site runs on it." },
+  { name: "Linux (Ubuntu)", category: "Dev tools", verdict: "loved", take: "Full control, no nonsense. The OS gets out of my way." },
+  { name: "Notion", category: "Apps", verdict: "fine", take: "Lovely for docs, fights you the moment you treat it like a real database." },
+  { name: "Wireless earbuds (budget pair)", category: "Hardware", verdict: "fine", take: "Good enough for podcasts and calls; I stopped pretending I'm an audiophile." },
+  { name: "AI 'agent' browser extensions", category: "AI", verdict: "pass", take: "Most are a demo wearing a product's clothes. I'd rather build the real thing." },
+];
+
+// Friends and people whose work I'll vouch for. DRAFT: replace with your real
+// people, their links, and a true one-line endorsement.
+export const shoutouts: { name: string; what: string; blurb: string; href: string }[] = [
+  { name: "A friend's startup", what: "Healthtech · clinic software", blurb: "Building genuinely better software for clinics. I've watched the care they put in up close.", href: "" },
+  { name: "A friend's studio", what: "Design & brand", blurb: "The people I send anyone who needs a brand that actually looks considered.", href: "" },
+  { name: "A friend's product", what: "Dev tools", blurb: "Quietly useful, no hype. The kind of tool you keep using after the novelty wears off.", href: "" },
+];
