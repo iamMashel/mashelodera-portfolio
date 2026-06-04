@@ -251,10 +251,28 @@ export const reviews: {
   { name: "AI 'agent' browser extensions", category: "AI", verdict: "pass", take: "Most are a demo wearing a product's clothes. I'd rather build the real thing." },
 ];
 
-// Friends and people whose work I'll vouch for. DRAFT: replace with your real
-// people, their links, and a true one-line endorsement.
-export const shoutouts: { name: string; what: string; blurb: string; href: string }[] = [
-  { name: "A friend's startup", what: "Healthtech · clinic software", blurb: "Building genuinely better software for clinics. I've watched the care they put in up close.", href: "" },
-  { name: "A friend's studio", what: "Design & brand", blurb: "The people I send anyone who needs a brand that actually looks considered.", href: "" },
-  { name: "A friend's product", what: "Dev tools", blurb: "Quietly useful, no hype. The kind of tool you keep using after the novelty wears off.", href: "" },
+// Friends and businesses whose work I'll vouch for.
+export const shoutouts: {
+  name: string;
+  what: string;
+  blurb: string;
+  href: string;
+  handle?: string;
+  location?: string;
+}[] = [
+  {
+    name: "JJ Enterprise",
+    what: "Home, car & electronics",
+    handle: "@jj_enterprises_ltd",
+    blurb: "Makes home, shop, and car upgrades easier and more accessible: smart door locks, CCTV cameras, curtains, car tints, watches, shower heads, electronics and gaming accessories, VR headsets, smart glasses, and more. Countrywide delivery; DM or WhatsApp to order.",
+    location: "Royal Palms Mall, Wing A, 3rd Floor, Shop AS7 · Ronald Ngala St, Nairobi",
+    href: "https://www.instagram.com/jj_enterprises_ltd/",
+  },
+  {
+    name: "Scentholic",
+    what: "Fragrance",
+    handle: "@scentholic_ke",
+    blurb: "Picked up a perfume here and genuinely loved it. If you're after a good scent in Nairobi, start here.",
+    href: "https://www.instagram.com/scentholic_ke/",
+  },
 ];

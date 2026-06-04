@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { shoutouts } from "@/lib/personal";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -37,7 +37,7 @@ export default function RecommendsPage() {
             />
             <RevealGroup
               stagger={80}
-              className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3"
+              className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2"
             >
               {shoutouts.map((s) => {
                 const Inner = (
@@ -53,8 +53,17 @@ export default function RecommendsPage() {
                     </h3>
                     <p className="mt-1 font-mono text-[0.7rem] uppercase tracking-wider text-accent-strong">
                       {s.what}
+                      {s.handle && (
+                        <span className="text-ink-muted"> · {s.handle}</span>
+                      )}
                     </p>
                     <p className="mt-2 text-[0.95rem] text-ink-muted">{s.blurb}</p>
+                    {s.location && (
+                      <p className="mt-3 flex items-start gap-1.5 text-sm text-ink-muted">
+                        <MapPin size={14} className="mt-0.5 shrink-0 text-accent-strong" />
+                        {s.location}
+                      </p>
+                    )}
                   </>
                 );
                 return (
