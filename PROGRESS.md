@@ -50,6 +50,18 @@ and a contact form that emails via Resend.
 
 ## Milestones (newest first)
 
+### Visitor counter, Roadbuck, real shoutouts
+- **Visitor counter** in the footer — a real count backed by Upstash Redis
+  (atomic `INCR`, one first-party cookie so people aren't counted twice). Hides
+  itself until the store is connected; never shows a fake number. Privacy policy
+  updated to cover it.
+- **Roadbuck** added as the lead case study (live client site, real screenshot).
+- **Real shoutouts**: JJ Enterprise and Scentholic replace the placeholders.
+
+### Polish pass (impeccable `polish`)
+Clean lint (fixed setState-in-effect via a `useReducedMotion` hook), 44px mobile
+touch targets, verified contrast and responsive behaviour.
+
 ### Motion pass (impeccable `animate`)
 Replaced the uniform fade-and-rise on every section with a **signature hero
 entrance** (headline lines rise from a clipped baseline, the accent glow blooms,
@@ -113,6 +125,8 @@ Items marked `// DRAFT` in the code are seed content to swap for the real thing:
   to light up the "Book a call" button.
 - **Resend API key** — add `RESEND_API_KEY` in Vercel to make the contact form
   deliver (see `.env.example`).
+- **Upstash Redis** — add a free Upstash store from the Vercel Marketplace
+  (Storage → Upstash) to light up the footer visitor counter; until then it hides.
 - **Custom domain** — point one at Vercel and update `url` in `src/lib/site.ts`.
 
 ## Where to edit content

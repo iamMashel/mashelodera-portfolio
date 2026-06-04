@@ -9,6 +9,7 @@ import {
   WhatsappIcon,
 } from "@/components/icons/Brand";
 import { RotatingWisdom } from "@/components/RotatingWisdom";
+import { VisitCount } from "@/components/VisitCount";
 import { nav, personalPages, site, whatsappHref } from "@/lib/site";
 
 const elsewhere = [
@@ -102,6 +103,7 @@ export function Footer() {
           <p>
             © {year} {site.name}
           </p>
+          <VisitCount />
           <Link href="/privacy" className="transition-colors hover:text-cream">
             Privacy policy
           </Link>

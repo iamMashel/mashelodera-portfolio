@@ -27,8 +27,9 @@ export default function PrivacyPage() {
                 Almost nothing. There are no accounts, no analytics scripts, and
                 no advertising or tracking cookies set by this website. You can
                 read every page without giving up any personal information. The
-                one exception is the contact form, which you choose to fill in
-                (see below).
+                only things it records are an anonymous visitor tally and
+                whatever you choose to send via the contact form (both explained
+                below).
               </p>
 
               <h2>Hosting and server logs</h2>
@@ -43,9 +44,17 @@ export default function PrivacyPage() {
 
               <h2>Cookies</h2>
               <p>
-                This site does not set tracking or marketing cookies. If your
-                browser stores anything, it is limited to what is strictly needed
-                to load the page.
+                No advertising or tracking cookies. The site sets a single
+                first-party cookie purely so the visitor counter does not count
+                you twice; it holds a yes/no flag, nothing that identifies you.
+              </p>
+
+              <h2>Visitor count</h2>
+              <p>
+                The footer shows a running count of visitors. It is one aggregate
+                number incremented in a private datastore: no personal data, no
+                profile, no third-party analytics. The cookie above simply keeps
+                your own visit from being recounted on every reload.
               </p>
 
               <h2>The contact form</h2>
