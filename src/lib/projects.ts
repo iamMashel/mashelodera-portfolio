@@ -26,6 +26,61 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "roadbuck",
+    name: "Roadbuck",
+    tagline: "A heavy-equipment OEM storefront and lead engine",
+    category: "Marketing / Lead-gen",
+    year: "2026",
+    role: "Design + frontend engineering",
+    timeline: "Live",
+    stack: ["Next.js", "React 19", "TypeScript", "Tailwind v4"],
+    image: "/work/roadbuck.jpg",
+    imageAlt:
+      "Roadbuck homepage: a dark steel-and-safety-yellow hero reading 'Built to take a beating' over a workshop photo.",
+    featured: true,
+    links: { live: "https://roadbuck-web.vercel.app/" },
+    summary:
+      "A marketing and lead-generation site for Roadbuck, a global supplier and manufacturer of automotive garage machinery, that turns a spec-heavy catalogue into quotes over WhatsApp.",
+    outcomes: [
+      "WhatsApp + 'Get a quote' as the primary conversion",
+      "'Find my kit' guided picker across the catalogue",
+      "Compare specs across machines side by side",
+    ],
+    problem:
+      "Buying garage equipment (two- and four-post lifts, 3D wheel aligners, tyre changers, balancers, compressors) is spec-heavy and trust-sensitive, and in these markets the deal usually closes over WhatsApp. Roadbuck needed a site that presents a broad, technical catalogue credibly to garage owners across East Africa and beyond, then funnels them to a quote without friction.",
+    constraints: [
+      "Broad catalogue with dense specs that must stay legible",
+      "Buyers are mobile-first and WhatsApp-first",
+      "Must signal OEM credibility (CE-certified, factory-built) without a generic template look",
+      "Dark, heavy-equipment aesthetic that holds up across many product pages",
+    ],
+    approach: [
+      {
+        title: "Look like the machines it sells",
+        body: "A dark steel visual system with one safety-yellow accent, oversized industrial type, and real workshop imagery. The hero ('Built to take a beating') sets the tone: this is OEM kit, not a SaaS landing page.",
+      },
+      {
+        title: "A catalogue that helps you choose",
+        body: "An Equipment taxonomy, a Compare view that lines specs up side by side, and a 'Find my kit' guided picker so a garage owner lands on the right machine instead of bouncing off a spec sheet.",
+      },
+      {
+        title: "WhatsApp-first conversion",
+        body: "Every path ends in a quote request or a WhatsApp chat, matching how these deals actually close in the region. 'Get a quote' is always one tap away.",
+      },
+      {
+        title: "Built for trust and speed",
+        body: "CE certification and Guangdong factory provenance are surfaced as credibility, on a fast, accessible Next.js build with a dark/light toggle.",
+      },
+    ],
+    results: [
+      "A credible OEM presence that turns a spec-heavy catalogue into quote conversations.", // DRAFT: add real enquiry/quote numbers when available
+      "Compare and Find-my-kit cut the back-and-forth before a quote.",
+      "Live, with messaging built for 20+ export markets.",
+    ],
+    tradeoffs:
+      "Scoped to lead-gen plus catalogue rather than full transactional checkout; the architecture leaves room for commerce later. I committed hard to the dark industrial look, which I'd defend again for this audience.",
+  },
+  {
     slug: "onagi",
     name: "Onagi",
     tagline: "A multimodal autonomous reasoning agent",
