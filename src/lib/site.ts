@@ -47,8 +47,9 @@ export const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComp
 export const nav = [
   { label: "Work", href: "/#work" },
   { label: "Services", href: "/#services" },
+  { label: "About", href: "/#about" },
   { label: "Writing", href: "/blog" },
-  { label: "Off the clock", href: "/more" },
+  { label: "More", href: "/more" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 

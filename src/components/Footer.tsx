@@ -100,11 +100,11 @@ export function Footer() {
       <div className="border-t border-cream/15">
         <div className="container-page flex flex-col items-start justify-between gap-2 py-6 text-sm text-cream-muted sm:flex-row sm:items-center">
           <p>
-            © {year} {site.name}. Built with Next.js, deployed on Vercel.
+            © {year} {site.name}
           </p>
-          <p>
-            Designed &amp; coded in {site.location} · hockey striker on weekends.
-          </p>
+          <Link href="/privacy" className="transition-colors hover:text-cream">
+            Privacy
+          </Link>
         </div>
       </div>
     </footer>

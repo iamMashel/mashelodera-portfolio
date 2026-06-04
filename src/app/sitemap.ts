@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/bookshelf",
     "/playground",
     "/uses",
+    "/privacy",
   ].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "monthly" as const,
