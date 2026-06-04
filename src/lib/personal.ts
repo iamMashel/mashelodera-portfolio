@@ -34,53 +34,72 @@ export const now = [
 ] as const;
 
 // ---- /bookshelf -------------------------------------------------------------
-// DRAFT: these are example titles that fit the brief. Replace takes with your
-// own words and the list with what you're actually reading.
+// Covers live in /public/books/<slug>.jpg (fetched from Open Library). Takes are
+// seed text in Mashel's voice — edit them, and add/remove titles freely.
+export const bookCategories = [
+  "Philosophy",
+  "Science fiction",
+  "Biographies",
+  "Business & tech",
+  "Comics",
+  "Self-help",
+  "Non-fiction",
+] as const;
+
+export type BookCategory = (typeof bookCategories)[number];
+
 export type Book = {
+  slug: string; // matches /public/books/<slug>.jpg
   title: string;
   author: string;
+  category: BookCategory;
   take: string;
   rating?: number; // out of 5
+  current?: boolean; // currently reading
 };
 
-export const currentlyReading: Book[] = [
-  {
-    title: "The Alignment Problem",
-    author: "Brian Christian",
-    take: "DRAFT: your take, the bridge between ML practice and the safety questions I care about.",
-  },
-  {
-    title: "Superintelligence",
-    author: "Nick Bostrom",
-    take: "DRAFT: your take, dense, but it set the vocabulary for how I think about the stakes.",
-  },
-];
+export const books: Book[] = [
+  // Philosophy
+  { slug: "meditations", title: "Meditations", author: "Marcus Aurelius", category: "Philosophy", rating: 5, take: "The original note-to-self. I re-read a few pages whenever the noise gets loud." },
+  { slug: "letters-from-a-stoic", title: "Letters from a Stoic", author: "Seneca", category: "Philosophy", rating: 5, take: "Practical Stoicism, letter by letter. Ages better than most modern self-help." },
+  { slug: "beyond-good-and-evil", title: "Beyond Good and Evil", author: "Friedrich Nietzsche", category: "Philosophy", rating: 4, take: "Uncomfortable in the best way. Made me argue with the page." },
+  { slug: "mans-search-for-meaning", title: "Man's Search for Meaning", author: "Viktor E. Frankl", category: "Philosophy", rating: 5, take: "Meaning as a choice, written by someone who earned the right to say it." },
 
-export const haveRead: Book[] = [
-  {
-    title: "Thinking, Fast and Slow",
-    author: "Daniel Kahneman",
-    take: "DRAFT: your one-line verdict.",
-    rating: 5,
-  },
-  {
-    title: "The Selfish Gene",
-    author: "Richard Dawkins",
-    take: "DRAFT: the biology book that quietly shaped how I see systems and incentives.",
-    rating: 5,
-  },
-  {
-    title: "Sapiens",
-    author: "Yuval Noah Harari",
-    take: "DRAFT: your one-line verdict.",
-    rating: 4,
-  },
-  {
-    title: "Deep Learning",
-    author: "Goodfellow, Bengio & Courville",
-    take: "DRAFT: a reference more than a read, but the chapters that clicked, really clicked.",
-    rating: 4,
-  },
+  // Science fiction
+  { slug: "dune", title: "Dune", author: "Frank Herbert", category: "Science fiction", rating: 5, take: "Ecology, power, and prophecy. The world-building bar everything else is measured against." },
+  { slug: "foundation", title: "Foundation", author: "Isaac Asimov", category: "Science fiction", rating: 5, take: "Predicting the future with math, then watching the math meet people." },
+  { slug: "neuromancer", title: "Neuromancer", author: "William Gibson", category: "Science fiction", rating: 4, take: "Invented the vibe of the internet before the internet. Still feels ahead." },
+  { slug: "snow-crash", title: "Snow Crash", author: "Neal Stephenson", category: "Science fiction", rating: 4, take: "Ridiculous and brilliant. Language as a virus, delivered at full speed." },
+
+  // Biographies
+  { slug: "elon-musk", title: "Elon Musk", author: "Walter Isaacson", category: "Biographies", rating: 4, take: "An unvarnished look at relentless drive and its collateral. Isaacson lets you decide." },
+  { slug: "steve-jobs", title: "Steve Jobs", author: "Walter Isaacson", category: "Biographies", rating: 5, take: "Taste, cruelty, and the reality distortion field. A study in caring about the unseen details." },
+  { slug: "the-code-breaker", title: "The Code Breaker", author: "Walter Isaacson", category: "Biographies", rating: 5, take: "Doudna, CRISPR, and the ethics of editing life. Hits home given my biology background." },
+  { slug: "einstein", title: "Einstein", author: "Walter Isaacson", category: "Biographies", rating: 4, take: "Curiosity as a superpower. The rebel who questioned the obvious." },
+
+  // Business & tech
+  { slug: "zero-to-one", title: "Zero to One", author: "Peter Thiel", category: "Business & tech", rating: 4, take: "Contrarian, sharp, occasionally infuriating. Good questions outlast the answers." },
+  { slug: "the-lean-startup", title: "The Lean Startup", author: "Eric Ries", category: "Business & tech", rating: 4, take: "Build, measure, learn. Obvious now because this book made it so." },
+  { slug: "the-hard-thing-about-hard-things", title: "The Hard Thing About Hard Things", author: "Ben Horowitz", category: "Business & tech", rating: 5, take: "The honest book about the parts of building no one frames nicely." },
+  { slug: "the-innovators", title: "The Innovators", author: "Walter Isaacson", category: "Business & tech", rating: 4, take: "How the digital revolution was a team sport. Great context for where AI sits now." },
+
+  // Comics
+  { slug: "watchmen", title: "Watchmen", author: "Alan Moore", category: "Comics", rating: 5, take: "The one that proved comics could carry real weight. Still unmatched." },
+  { slug: "the-sandman", title: "The Sandman", author: "Neil Gaiman", category: "Comics", rating: 5, take: "Myth, dreams, and beautiful melancholy. A masterclass in scope." },
+  { slug: "maus", title: "Maus", author: "Art Spiegelman", category: "Comics", rating: 5, take: "Proof that the form can hold the heaviest stories. Unforgettable." },
+  { slug: "v-for-vendetta", title: "V for Vendetta", author: "Alan Moore", category: "Comics", rating: 4, take: "Ideas as weapons. More relevant every year." },
+
+  // Self-help
+  { slug: "atomic-habits", title: "Atomic Habits", author: "James Clear", category: "Self-help", rating: 4, take: "Systems over goals. The 1% framing actually changed how I build routines." },
+  { slug: "deep-work", title: "Deep Work", author: "Cal Newport", category: "Self-help", rating: 5, take: "Focus is the skill of the decade. This is the manual." },
+  { slug: "cant-hurt-me", title: "Can't Hurt Me", author: "David Goggins", category: "Self-help", rating: 4, take: "Intense, not for everyone, but the chapter on the 40% rule stuck." },
+  { slug: "the-7-habits", title: "The 7 Habits of Highly Effective People", author: "Stephen R. Covey", category: "Self-help", rating: 4, take: "Dated examples, durable principles. Begin with the end in mind." },
+
+  // Non-fiction
+  { slug: "sapiens", title: "Sapiens", author: "Yuval Noah Harari", category: "Non-fiction", rating: 4, take: "A confident, sweeping story of us. Argue with it and you'll learn more." },
+  { slug: "thinking-fast-and-slow", title: "Thinking, Fast and Slow", author: "Daniel Kahneman", category: "Non-fiction", rating: 5, take: "Why your brain fools you, from the person who proved it. Required reading for anyone who trains models." },
+  { slug: "the-selfish-gene", title: "The Selfish Gene", author: "Richard Dawkins", category: "Non-fiction", rating: 5, take: "The biology book that quietly shaped how I see systems and incentives." },
+  { slug: "the-alignment-problem", title: "The Alignment Problem", author: "Brian Christian", category: "Non-fiction", current: true, take: "Currently reading. The clearest bridge between ML practice and the safety questions I care about." },
 ];
 
 // ---- /playground ------------------------------------------------------------
