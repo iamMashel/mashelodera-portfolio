@@ -5,10 +5,18 @@ import { getAllPosts } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, "");
-  const staticRoutes = ["", "/blog"].map((path) => ({
+  const staticRoutes = [
+    "",
+    "/blog",
+    "/more",
+    "/now",
+    "/bookshelf",
+    "/playground",
+    "/uses",
+  ].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "monthly" as const,
-    priority: path === "" ? 1 : 0.7,
+    priority: path === "" ? 1 : 0.6,
   }));
 
   const work = projects.map((p) => ({

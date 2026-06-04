@@ -1,6 +1,5 @@
-// Case-study content. BizFlow details are drawn from the real product screenshot.
-// Metrics/outcomes marked `// DRAFT` are realistic placeholders — Mashel to confirm
-// real numbers and add live/repo links.
+// Case-study content. Drawn from Mashel's real CV projects. Items marked
+// `// DRAFT` are soft claims / links to confirm or add.
 
 export type Project = {
   slug: string;
@@ -15,21 +14,68 @@ export type Project = {
   imageAlt: string;
   featured: boolean;
   links: { live?: string; github?: string };
-  // Card summary
   summary: string;
-  // 2-3 headline outcomes (shown on card + top of case study)
   outcomes: string[];
-  // Long-form case study, Problem -> Constraints -> Approach -> Solution -> Results -> Tradeoffs
   problem: string;
   constraints: string[];
   approach: { title: string; body: string }[];
   results: string[];
   tradeoffs: string;
-  // Visual accent seed for the generated preview (when image is null)
-  previewTheme?: "health" | "studio";
+  previewTheme?: "health" | "studio" | "ai" | "game";
 };
 
 export const projects: Project[] = [
+  {
+    slug: "onagi",
+    name: "Onagi",
+    tagline: "A multimodal autonomous reasoning agent",
+    category: "Agentic AI",
+    year: "2026",
+    role: "AI engineering + product",
+    timeline: "Gemini 3 Hackathon build",
+    stack: ["Gemini 3 Vision", "Playwright", "RAG", "Function Calling", "Python"],
+    image: null,
+    previewTheme: "ai",
+    imageAlt:
+      "Onagi agent interface: a reasoning pipeline turning a screen and a user request into grounded actions.",
+    featured: true,
+    links: { live: "", github: "https://github.com/iamMashel" }, // DRAFT: add the exact repo + live demo
+    summary:
+      "An autonomous agent that watches the screen, reasons over what it sees with Gemini 3 Vision, and acts, writing to the database and calling APIs based on the user's intent.",
+    outcomes: [
+      "Real-time multimodal RAG over live screen content",
+      "Native function-calling that triggers DB writes and API calls",
+      "Sub-millisecond reasoning latency via context caching",
+    ],
+    problem:
+      "Most 'AI assistants' can describe what they'd do but can't actually do it, and the ones that act tend to act blindly. The brief for Onagi was an agent that genuinely understands what's on screen, decides what the user wants, and takes the right action, without losing the plot on large, fast-moving context.",
+    constraints: [
+      "Hackathon timeline: a working multimodal pipeline, not a slide deck",
+      "Vision + retrieval + action had to run fast enough to feel live",
+      "Actions touch real data, so intent detection had to be reliable",
+    ],
+    approach: [
+      {
+        title: "See, then reason",
+        body: "A Playwright + Gemini 3 Vision pipeline captures live screen content and feeds it into a retrieval-augmented reasoning loop, so the agent reasons over what is actually there rather than a stale snapshot.",
+      },
+      {
+        title: "Intent to action via function calling",
+        body: "Native function calling maps the user's intent to concrete tools, database writes and API integrations, so the agent doesn't just answer, it executes the right operation.",
+      },
+      {
+        title: "Keep huge context cheap",
+        body: "Context caching holds massive datasets in working memory, bringing reasoning latency down to sub-millisecond on repeat queries instead of re-reading everything each turn.",
+      },
+    ],
+    results: [
+      "A demoable agent that turns a screen plus a request into a grounded action.", // DRAFT: confirm hackathon outcome/placement
+      "Showed that multimodal RAG + function calling can run at interactive speed.",
+      "A reusable pattern for vision-grounded agents, not a one-off script.",
+    ],
+    tradeoffs:
+      "Built under hackathon pressure, Onagi prioritized a convincing end-to-end loop over breadth of tools and hardened guardrails. The architecture leaves clear seams to add permissioning and a wider tool registry before anything like production use.",
+  },
   {
     slug: "bizflow-ai",
     name: "BizFlow AI",
@@ -62,15 +108,15 @@ export const projects: Project[] = [
     approach: [
       {
         title: "A command center, not a chat box",
-        body: "I anchored the product on a dashboard that answers one question on load: what needs my attention? Six status tiles (documents, completed, pending approvals, completed and failed workflows, AI outputs) give an operator the whole state of the workspace in a glance, with recent documents and workflow runs one scroll below.",
+        body: "I anchored the product on a dashboard that answers one question on load: what needs my attention? Status tiles (documents, completed and pending approvals, completed and failed workflows, AI outputs) give an operator the whole state of the workspace in a glance, with recent documents and workflow runs one scroll below.",
       },
       {
         title: "Grounding over generation",
-        body: "Every AI answer is retrieved against the user's uploaded files (RAG), so 'Ask AI' returns sourced answers rather than confident guesses. Readiness states (Completed / Pending) make it obvious which documents are enriched and safe to query.",
+        body: "Every AI answer is retrieved against the user's uploaded files (RAG), so 'Ask AI' returns sourced answers rather than confident guesses. Readiness states make it obvious which documents are enriched and safe to query.",
       },
       {
         title: "Human approval as a first-class step",
-        body: "Workflows generate a preview, then wait. The Workflow Approvals surface exists so nothing executes until a person reviews it. The design makes the safe path the default path.",
+        body: "Workflows generate a preview, then wait. Nothing executes until a person reviews it. The design makes the safe path the default path.",
       },
       {
         title: "Quiet, dense, readable UI",
@@ -80,111 +126,61 @@ export const projects: Project[] = [
     results: [
       "Operators go from a stack of files to reviewed, ready-to-run actions in a single session.", // DRAFT
       "Approval-gated automation removed the trust barrier that blocks AI adoption for ops teams.",
-      "The dashboard pattern scaled cleanly from 3 documents to a full workspace without redesign.",
+      "The dashboard pattern scaled cleanly from a handful of documents to a full workspace without redesign.",
     ],
     tradeoffs:
       "To ship the MVP I deliberately scoped out bulk document ingestion and role-based permissions; the architecture leaves room for both. The dark-sidebar / light-canvas split was a bet on focus over visual flash, and I'd defend it again for a data tool people use all day.",
   },
   {
-    slug: "scd-warriors",
-    name: "SCD Warriors",
-    tagline: "A calm companion for sickle cell warriors and caregivers",
-    category: "HealthTech",
+    slug: "vibe-coding-snake",
+    name: "Vibe Coding Snake",
+    tagline: "A full-stack agentic take on a classic game",
+    category: "Full-stack",
     year: "2025",
-    role: "UI/UX design + frontend",
-    timeline: "Ongoing",
-    stack: ["Next.js", "React", "Tailwind", "Supabase", "PWA"],
+    role: "Full-stack engineering",
+    timeline: "Personal project",
+    stack: ["React 19", "FastAPI", "PostgreSQL", "JWT", "Docker", "GitHub Actions"],
     image: null,
-    previewTheme: "health",
-    imageAlt: "SCD Warriors app preview: crisis log, medication reminders, and a support feed.",
+    previewTheme: "game",
+    imageAlt:
+      "Vibe Coding Snake: a crisp browser game canvas beside a leaderboard backed by an authenticated API.",
     featured: true,
-    links: { live: "", github: "" }, // DRAFT
+    links: { live: "", github: "https://github.com/iamMashel" }, // DRAFT: add the repo + live link
     summary:
-      "A supportive app for people living with sickle cell disease: log crises, track medication, and stay connected to a community that gets it.",
+      "A classic game rebuilt as a real product: an authenticated FastAPI + PostgreSQL backend, a 60 FPS React 19 frontend, and a CI/CD pipeline that tests and ships on every push.",
     outcomes: [
-      "Crisis & symptom logging in seconds", // DRAFT
-      "Medication and hydration reminders",
-      "Peer support without the noise",
+      "Zero-latency 60 FPS game loop in React 19",
+      "FastAPI + PostgreSQL backend with JWT auth",
+      "CI/CD via GitHub Actions and Docker Compose with automated tests",
     ],
     problem:
-      "Sickle cell disease means living with unpredictable pain crises, complex medication schedules, and a lot of isolation. Most health apps are built for fitness, not for chronic conditions: they're loud, gamified, and exhausting to use on a bad day. SCD Warriors needed to be the opposite: gentle, fast, and genuinely useful in the middle of a crisis.",
+      "A snake game is trivial. Building it the way a real product is built, with authentication, a database, automated tests, and a deployment pipeline, is the actual exercise. The goal was to practise full-stack discipline end to end on a project small enough to finish but real enough to be honest.",
     constraints: [
-      "Must be usable one-handed, in pain, on a low-end phone",
-      "Accessibility is non-negotiable, not a nice-to-have",
-      "Sensitive health data: privacy and trust by design",
-      "Emotional tone matters as much as features",
+      "The game loop has to stay at a smooth 60 FPS",
+      "Treat it like production: auth, persistence, tests, CI",
+      "Keep it reproducible, clone, compose up, run",
     ],
     approach: [
       {
-        title: "Design for the worst day, not the best",
-        body: "I designed the core flows assuming the user is in pain and tired: large touch targets, a one-tap crisis log, minimal typing, and a layout that never punishes a mistake. Calm color, soft contrast within AA limits, and zero gamification.",
+        title: "A real backend behind a toy",
+        body: "FastAPI serves a JWT-authenticated API over PostgreSQL for accounts and scores, so the game has genuine state and identity instead of localStorage.",
       },
       {
-        title: "Track what actually helps",
-        body: "Crisis intensity, triggers, hydration, and medication, captured fast and surfaced back as patterns the user can show a clinician. Reminders are supportive nudges, never nagging alarms.",
+        title: "A frontend that never drops a frame",
+        body: "The React 19 client runs a tight, zero-latency render loop tuned to hold 60 FPS, with game state cleanly separated from UI.",
       },
       {
-        title: "Community that supports, not overwhelms",
-        body: "A moderated feed designed for encouragement and shared experience, deliberately free of the engagement-bait patterns that make social feeds draining.",
+        title: "Ship it like you mean it",
+        body: "GitHub Actions runs automated tests on every push and Docker Compose makes the whole stack reproducible from a single command.",
       },
     ],
     results: [
-      "A health tool that respects the user's energy instead of demanding it.", // DRAFT
-      "Logging flows fast enough to complete during an actual crisis.",
-      "An interface that families and caregivers can navigate too.",
+      "A small project that exercises the full production loop, not just the fun part.",
+      "A reproducible stack anyone can clone and run with one command.",
+      "A reference I reuse for wiring auth, persistence, and CI quickly.",
     ],
     tradeoffs:
-      "I kept the v1 feature set narrow on purpose (logging, reminders, community) rather than chasing clinical integrations early. Trust and ease had to be proven before depth. Native push and offline-first were prioritized over a broad feature list.",
-  },
-  {
-    slug: "onagi-ai-labs",
-    name: "Onagi AI Labs",
-    tagline: "Brand and site for an AI research & development studio",
-    category: "Brand / Marketing site",
-    year: "2025",
-    role: "Design + build",
-    timeline: "3 weeks",
-    stack: ["Next.js", "Tailwind", "Motion", "TypeScript"],
-    image: null,
-    previewTheme: "studio",
-    imageAlt: "Onagi AI Labs marketing site preview: bold hero, capability grid, and motion-led layout.",
-    featured: true,
-    links: { live: "", github: "" }, // DRAFT
-    summary:
-      "A marketing site that makes a young AI R&D studio look as serious as its work: confident type, purposeful motion, and a clear story.",
-    outcomes: [
-      "A credible, fundable first impression", // DRAFT
-      "Story-first structure, not a feature dump",
-      "Motion that earns attention, then gets out of the way",
-    ],
-    problem:
-      "A new AI R&D studio had real technical depth but a presence that undersold it. They needed a site that signalled credibility to potential clients and partners in the first few seconds, without the generic, template look that makes every AI startup blur together.",
-    constraints: [
-      "Pre-product: the brand had to carry the weight",
-      "Differentiate in a sea of identical AI landing pages",
-      "Fast to ship, easy for the team to extend",
-    ],
-    approach: [
-      {
-        title: "A point of view, not a template",
-        body: "I led with a committed typographic hero and a tightly art-directed narrative (what the studio works on, how it thinks, and why it's worth a conversation) instead of the usual gradient-blob-and-three-cards layout.",
-      },
-      {
-        title: "Motion as choreography",
-        body: "Entrance and scroll motion were composed as one sequence, tuned with exponential easing and full reduced-motion fallbacks, so the site feels alive without becoming a distraction.",
-      },
-      {
-        title: "Built to extend",
-        body: "Componentized in Next.js so the team could add case studies and posts themselves without breaking the system.",
-      },
-    ],
-    results: [
-      "A first impression that matches the studio's technical ambition.", // DRAFT
-      "A structure the team can grow without a redesign.",
-      "Clear differentiation from the AI-startup template crowd.",
-    ],
-    tradeoffs:
-      "With no product to show yet, I leaned the design into brand and narrative rather than screenshots. That's the right call pre-launch; the system is ready to fold in product imagery the moment it exists.",
+      "I spent more time on the pipeline and auth than the gameplay, which is the whole point: the discipline transfers, the snake doesn't. Multiplayer and real-time leaderboards were left as obvious next steps.",
   },
 ];
 

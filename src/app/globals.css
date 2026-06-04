@@ -4,17 +4,30 @@
    Design tokens  (see DESIGN.md). OKLCH, verified WCAG 2.2 AA.
 --------------------------------------------------------------------------- */
 @theme {
-  --color-bg: oklch(1 0 0);
-  --color-surface: oklch(0.975 0 0);
-  --color-surface-2: oklch(0.955 0 0);
-  --color-ink: oklch(0.17 0 0);
-  --color-ink-muted: oklch(0.44 0 0);
-  --color-line: oklch(0.9 0 0);
+  /* Studio Warm / Africa-rooted. Committed clay brand on warm neutrals.
+     Deliberately NOT a beige body: --bg sits above the cream band (L > 0.97),
+     so it reads clean-white. Warmth is carried by the clay accent, the
+     deep-clay drenched sections, and the type, not by a tinted page bg. */
+  --color-bg: oklch(0.992 0.004 72);
+  --color-surface: oklch(0.971 0.008 66);
+  --color-surface-2: oklch(0.948 0.012 60);
+  --color-ink: oklch(0.225 0.015 48);
+  --color-ink-muted: oklch(0.468 0.019 46);
+  --color-line: oklch(0.888 0.013 62);
 
-  --color-accent: oklch(0.55 0.235 351);
-  --color-accent-strong: oklch(0.5 0.22 351);
-  --color-accent-bright: oklch(0.65 0.24 350);
-  --color-accent-wash: oklch(0.965 0.03 351);
+  /* Drenched dark surfaces, deep espresso-clay (hero band, footer, CTA). */
+  --color-ink-invert: oklch(0.252 0.05 40);
+  --color-ink-invert-2: oklch(0.31 0.052 42);
+  --color-cream: oklch(0.955 0.013 80);
+  --color-cream-muted: oklch(0.795 0.024 72);
+
+  /* Clay brand ramp. */
+  --color-accent: oklch(0.575 0.158 43);
+  --color-accent-strong: oklch(0.472 0.146 40);
+  --color-accent-bright: oklch(0.66 0.176 47);
+  --color-accent-wash: oklch(0.948 0.038 52);
+  /* Supporting warm ochre, sparing, mostly on dark surfaces. */
+  --color-ochre: oklch(0.8 0.116 78);
 
   --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
@@ -158,7 +171,7 @@
     }
   }
 
-  /* Animated magenta underline for inline links */
+  /* Animated clay underline for inline links */
   .link-underline {
     background-image: linear-gradient(var(--color-accent-strong), var(--color-accent-strong));
     background-size: 0% 1.5px;
@@ -169,6 +182,43 @@
   }
   .link-underline:hover {
     background-size: 100% 1.5px;
+  }
+
+  /* Drenched dark band, deep espresso-clay with cream text. Used for the
+     hero, contact CTA, and footer so the brand color carries real surface. */
+  .surface-deep {
+    background: var(--color-ink-invert);
+    color: var(--color-cream);
+  }
+  .surface-deep h1,
+  .surface-deep h2,
+  .surface-deep h3,
+  .surface-deep h4 {
+    color: var(--color-cream);
+  }
+  /* Warm radial wash + faint contour texture for depth on deep surfaces. */
+  .surface-deep-tex {
+    position: relative;
+    isolation: isolate;
+  }
+  .surface-deep-tex::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(
+        120% 80% at 85% -10%,
+        color-mix(in oklch, var(--color-accent) 55%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        90% 70% at 0% 110%,
+        color-mix(in oklch, var(--color-accent-bright) 28%, transparent),
+        transparent 55%
+      );
+    opacity: 0.55;
+    pointer-events: none;
   }
 }
 
@@ -227,10 +277,18 @@
   color: inherit;
 }
 .prose blockquote {
-  border-left: 3px solid var(--color-accent);
-  padding-left: 1.25rem;
-  color: var(--color-ink-muted);
+  margin-inline: 0;
+  padding: 1.1rem 1.35rem;
+  background: var(--color-accent-wash);
+  border-radius: 12px;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 1.15em;
+  line-height: 1.4;
   font-style: normal;
+}
+.prose blockquote p {
+  margin: 0;
 }
 .prose ul, .prose ol {
   padding-left: 1.3rem;

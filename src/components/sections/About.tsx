@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { skillGroups, stats } from "@/lib/content";
 import { site } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
@@ -7,59 +6,46 @@ export function About() {
   return (
     <section id="about" className="section-pad scroll-mt-20">
       <div className="container-page">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <Reveal className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative">
-              <div className="overflow-hidden rounded-2xl border border-line">
-                <Image
-                  src="/mashel.png"
-                  alt={`${site.name}, ${site.role}`}
-                  width={1122}
-                  height={1402}
-                  sizes="(max-width: 1024px) 100vw, 420px"
-                  className="w-full object-cover"
-                />
-              </div>
-              <div className="mt-4 flex items-center justify-between font-mono text-xs text-ink-muted">
-                <span>{site.name}</span>
-                <span>{site.location}</span>
-              </div>
-            </div>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Reveal>
+            <h2 className="h2 text-ink">
+              A scientist who trains AI, and an engineer who ships it.
+            </h2>
+            <p className="mt-4 font-display text-xl text-accent-strong">
+              {site.motto}
+            </p>
           </Reveal>
 
           <div>
             <Reveal>
-              <h2 className="h2 text-ink">
-                A designer who ships the code, and an engineer who sweats the
-                design.
-              </h2>
-            </Reveal>
-
-            <Reveal>
-              <div className="measure mt-6 space-y-4 text-lg text-ink-muted">
+              <div className="measure space-y-4 text-lg text-ink-muted">
                 <p>
-                  Most projects lose something in the handoff between the person
-                  who designs and the person who builds. I&apos;m both, so
-                  nothing gets lost. I&apos;ve spent five-plus years moving
-                  between Figma and a codebase, and the work is better for living
-                  in one head.
+                  I started in a molecular biology lab, where a 98% sample
+                  success rate isn&apos;t a brag, it&apos;s the price of being
+                  trusted. That training, evidence over vibes and precision
+                  under pressure, turned out to be exactly what modern AI is
+                  missing.
                 </p>
                 <p>
-                  Lately that means AI products (RAG dashboards, document
-                  workflows, chat interfaces) where the hard part isn&apos;t the
-                  model, it&apos;s making it feel trustworthy and clear to a real
-                  person. That&apos;s a design problem and an engineering problem
-                  at once, which is exactly where I like to work.
+                  So I brought it to the models. I evaluate and train LLMs
+                  (RLHF, SFT, multimodal), catching the failures reward models
+                  miss. I build agentic products that use those models well. And
+                  I teach the craft, because the bottleneck on good AI is people
+                  who understand it, not GPUs.
+                </p>
+                <p>
+                  The throughline is trust: making AI legible, grounded, and
+                  safe enough that a real person would stake a decision on it.
                 </p>
               </div>
             </Reveal>
 
             <Reveal>
-              <dl className="mt-10 grid grid-cols-3 gap-6 border-y border-line py-7">
+              <dl className="mt-10 grid grid-cols-2 gap-6 border-y border-line py-7 sm:grid-cols-4">
                 {stats.map((s) => (
                   <div key={s.label}>
                     <dt className="sr-only">{s.label}</dt>
-                    <dd className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+                    <dd className="font-display text-2xl font-semibold text-ink sm:text-3xl">
                       {s.value}
                     </dd>
                     <p className="mt-1 text-sm text-ink-muted">{s.label}</p>

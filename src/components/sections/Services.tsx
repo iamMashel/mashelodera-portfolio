@@ -1,21 +1,23 @@
 import {
+  Bot,
+  Brain,
   Code2,
-  PenTool,
-  Sparkles,
-  LayoutDashboard,
-  Rocket,
+  GraduationCap,
+  LineChart,
   type LucideIcon,
 } from "lucide-react";
 import { services } from "@/lib/content";
+import { whatsappHref } from "@/lib/site";
+import { WhatsappIcon } from "@/components/icons/Brand";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 
 const icons: Record<string, LucideIcon> = {
+  Bot,
+  Brain,
   Code2,
-  PenTool,
-  Sparkles,
-  LayoutDashboard,
-  Rocket,
+  GraduationCap,
+  LineChart,
 };
 
 export function Services() {
@@ -23,8 +25,8 @@ export function Services() {
     <section id="services" className="section-pad scroll-mt-20 bg-surface">
       <div className="container-page">
         <SectionHeading
-          title="What I do"
-          description="One person who can sit in the design review and the code review, and add something in both."
+          title="Ways to work with me"
+          description="One person across the modern AI stack, from training the model to shipping the product around it."
         />
 
         <Reveal>
@@ -34,7 +36,7 @@ export function Services() {
               return (
                 <div
                   key={s.title}
-                  className="group flex flex-col gap-4 bg-bg p-7 transition-colors hover:bg-accent-wash/40"
+                  className="group flex flex-col gap-4 bg-bg p-7 transition-colors hover:bg-accent-wash/50"
                 >
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-surface text-accent-strong transition-colors group-hover:border-accent/40">
                     {Icon && <Icon size={20} strokeWidth={1.75} />}
@@ -44,16 +46,22 @@ export function Services() {
                 </div>
               );
             })}
-            {/* trailing cell keeps the grid even on desktop */}
-            <div className="hidden flex-col justify-center gap-2 bg-ink p-7 text-bg sm:flex">
+            {/* trailing cell keeps the grid even and carries the CTA */}
+            <div className="surface-deep flex flex-col justify-center gap-3 p-8">
               <p className="font-display text-xl font-semibold">
-                Have something in mind?
+                Not sure which one you need?
+              </p>
+              <p className="text-sm text-cream-muted">
+                Tell me the problem. I&apos;ll tell you honestly what would
+                actually help.
               </p>
               <a
-                href="/#contact"
-                className="inline-flex w-fit items-center gap-2 text-bg/80 transition-colors hover:text-bg"
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="mt-1 inline-flex w-fit items-center gap-2 font-medium text-accent-bright transition-colors hover:text-cream"
               >
-                Let&apos;s scope it together →
+                <WhatsappIcon size={16} /> Message me
               </a>
             </div>
           </div>

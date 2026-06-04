@@ -1,116 +1,115 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { site } from "@/lib/site";
-import { AvailabilityBadge } from "@/components/AvailabilityBadge";
+import { site, whatsappHref } from "@/lib/site";
+import { WhatsappIcon } from "@/components/icons/Brand";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
+
+const Verb = ({ children }: { children: React.ReactNode }) => (
+  <span className="text-accent-bright">{children}</span>
+);
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* soft accent glow, decorative */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-accent-wash blur-3xl"
-      />
-      <div className="container-page relative grid items-center gap-12 pb-16 pt-12 md:pb-24 md:pt-20 lg:grid-cols-[1.05fr_0.95fr]">
+    <section className="surface-deep surface-deep-tex relative overflow-hidden">
+      <div className="container-page relative grid items-center gap-12 pb-16 pt-14 md:pb-24 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <RevealGroup stagger={90}>
-          <RevealItem className="mb-6">
-            <AvailabilityBadge />
-          </RevealItem>
+          {site.available && (
+            <RevealItem className="mb-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 px-3 py-1.5 text-sm text-cream-muted">
+                <span className="relative flex h-2 w-2" aria-hidden="true">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-bright opacity-70 motion-reduce:hidden" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-bright" />
+                </span>
+                {site.availabilityNote}
+              </span>
+            </RevealItem>
+          )}
 
-          <h1 className="h-hero text-ink">
+          <h1 className="h-hero text-cream">
             <RevealItem as="span" className="block">
-              I design and build
+              I <Verb>train</Verb> AI,
             </RevealItem>
             <RevealItem as="span" className="block">
-              <span className="relative whitespace-nowrap">
-                <span className="relative z-10">AI-ready</span>
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-[-0.1em] bottom-[0.08em] z-0 h-[0.42em] -rotate-1 rounded-sm bg-accent-wash"
-                />
-              </span>{" "}
-              web
+              <Verb>build</Verb> with it,
             </RevealItem>
             <RevealItem as="span" className="block">
-              experiences.
+              and <Verb>teach</Verb> it.
             </RevealItem>
           </h1>
 
           <RevealItem>
-            <p className="measure mt-6 text-lg text-ink-muted">
-              I&apos;m {site.name.split(" ")[0]}, a frontend developer &amp;
-              UI/UX designer in {site.location}. I take products from Figma to
-              production (marketing sites, SaaS dashboards, AI interfaces) in
-              React, Next.js, and Tailwind.
+            <p className="measure mt-7 text-lg text-cream-muted">
+              I&apos;m {site.name.split(" ")[0]}, an AI specialist in{" "}
+              {site.location}. I&apos;ve trained frontier models for Turing,
+              Outlier and iMerit, shipped agentic AI products, and taught 200+
+              people the craft, with a scientist&apos;s precision and dual
+              degrees in Computer Science and Molecular Biology.
             </p>
           </RevealItem>
 
-          <RevealItem className="mt-8 flex flex-wrap items-center gap-3">
+          <RevealItem className="mt-9 flex flex-wrap items-center gap-3">
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-medium text-cream transition-colors hover:bg-accent-bright"
+            >
+              <WhatsappIcon size={18} /> Start a project
+            </a>
             <Link
               href="/#work"
-              className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-medium text-bg transition-colors hover:bg-accent-strong"
+              className="inline-flex h-12 items-center gap-2 rounded-full border border-cream/25 px-6 font-medium text-cream transition-colors hover:bg-cream/10"
             >
               See the work <ArrowRight size={18} />
             </Link>
-            <Link
-              href="/#contact"
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-ink/20 px-6 font-medium text-ink transition-colors hover:border-ink hover:bg-surface"
-            >
-              Start a project
-            </Link>
           </RevealItem>
 
-          <RevealItem className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink-muted">
-            <a
-              href={site.socials.github}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-1 transition-colors hover:text-ink"
-            >
-              GitHub <ArrowUpRight size={14} />
-            </a>
-            <a
-              href={site.socials.linkedin}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-1 transition-colors hover:text-ink"
-            >
-              LinkedIn <ArrowUpRight size={14} />
-            </a>
-            <a
-              href={`mailto:${site.email}`}
-              className="inline-flex items-center gap-1 transition-colors hover:text-ink"
-            >
-              {site.email}
-            </a>
+          <RevealItem className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-cream-muted">
+            <span className="font-mono text-xs uppercase tracking-wider">
+              Trained models for
+            </span>
+            <span className="text-cream">Turing</span>
+            <span aria-hidden className="opacity-40">
+              ·
+            </span>
+            <span className="text-cream">Outlier AI</span>
+            <span aria-hidden className="opacity-40">
+              ·
+            </span>
+            <span className="text-cream">iMerit</span>
           </RevealItem>
         </RevealGroup>
 
-        {/* Hero visual: real product screenshot in a browser frame */}
-        <Reveal>
-          <div className="overflow-hidden rounded-2xl border border-line bg-bg shadow-[0_30px_80px_-40px_rgba(15,15,15,0.45)]">
-            <div className="flex items-center gap-1.5 border-b border-line bg-surface px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-line" />
-              <span className="h-2.5 w-2.5 rounded-full bg-line" />
-              <span className="h-2.5 w-2.5 rounded-full bg-line" />
-              <span className="ml-3 font-mono text-xs text-ink-muted">
-                bizflow-ai · dashboard
-              </span>
-            </div>
-            <Image
-              src="/work/bizflow.png"
-              alt="BizFlow AI dashboard, designed and built by Mashel Odera"
-              width={1599}
-              height={781}
-              priority
-              sizes="(max-width: 1024px) 100vw, 560px"
-              className="w-full"
+        {/* Portrait */}
+        <Reveal className="mx-auto w-full max-w-sm lg:max-w-none">
+          <div className="relative">
+            <div
+              aria-hidden="true"
+              className="absolute -inset-3 -z-10 rounded-[2rem] bg-accent/25 blur-2xl"
             />
-          </div>
-          <div className="mt-3 text-right font-mono text-xs text-ink-muted">
-            BizFlow AI · a GenAI document workflow tool
+            <div className="overflow-hidden rounded-3xl border border-cream/15 bg-ink-invert-2 shadow-[0_40px_90px_-50px_rgba(0,0,0,0.8)]">
+              <Image
+                src="/mashel.png"
+                alt={`${site.name}, AI specialist based in ${site.location}`}
+                width={1122}
+                height={1402}
+                priority
+                sizes="(max-width: 1024px) 90vw, 460px"
+                className="w-full object-cover"
+              />
+            </div>
+            <div className="mt-4 flex items-center justify-between font-mono text-xs text-cream-muted">
+              <a
+                href={site.socials.linkedin}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-1 transition-colors hover:text-cream"
+              >
+                {site.name} <ArrowUpRight size={13} />
+              </a>
+              <span>{site.location}</span>
+            </div>
           </div>
         </Reveal>
       </div>

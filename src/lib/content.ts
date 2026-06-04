@@ -1,91 +1,163 @@
-// Home-page content: services, skills, process, testimonials.
-// Testimonials marked DRAFT are placeholders — replace with real quotes + names.
+// Home-page content. All metrics here are drawn from Mashel's CV, real, not
+// invented. Testimonials marked DRAFT are placeholders to swap for real quotes.
 
+// The spike: three things almost nobody combines. Each is backed by proof.
+export const pillars = [
+  {
+    key: "train",
+    icon: "Brain",
+    kicker: "Train",
+    title: "I train the models.",
+    body: "RLHF, SFT, and multimodal evaluation for frontier AI. I grade outputs, build task trajectories, and catch the failures reward models miss.",
+    proof: "Top 10% QA accuracy at Outlier AI · −25% annotation ambiguity at Turing",
+  },
+  {
+    key: "build",
+    icon: "Boxes",
+    kicker: "Build",
+    title: "I build with them.",
+    body: "Agentic apps, RAG pipelines, and full-stack products. Function-calling, vector retrieval, and a frontend that makes AI feel trustworthy.",
+    proof: "Onagi: a Gemini 3 vision + RAG agent with sub-millisecond reasoning latency",
+  },
+  {
+    key: "teach",
+    icon: "GraduationCap",
+    kicker: "Teach",
+    title: "I teach the craft.",
+    body: "Workshops, cohorts, and one-on-one upskilling. I make the hard parts of AI legible to people who want to actually use them.",
+    proof: "200+ students taught across 3 schools · mentored junior annotators",
+  },
+] as const;
+
+// Trust strip, real organizations Mashel has worked with (remote).
+export const clients = [
+  "Turing",
+  "Outlier AI",
+  "iMerit",
+  "TechUp Africa",
+] as const;
+
+// Headline metrics, real, from the CV.
+export const stats = [
+  { value: "Top 10%", label: "QA accuracy ranking at Outlier AI" },
+  { value: "−25%", label: "annotation ambiguity reduced at Turing" },
+  { value: "200+", label: "people taught the craft" },
+  { value: "2 degrees", label: "Computer Science + Molecular Biology" },
+] as const;
+
+// The services menu, breadth, framed as a menu rather than the headline.
 export const services = [
   {
+    icon: "Bot",
+    title: "AI solutions & agents",
+    body: "RAG systems, autonomous agents, function-calling pipelines, and AI features wired into your product or workflow.",
+  },
+  {
+    icon: "Brain",
+    title: "AI training & evaluation",
+    body: "RLHF/SFT data, model evaluation, red-teaming, and annotation pipelines, run with measurable QA discipline.",
+  },
+  {
     icon: "Code2",
-    title: "Frontend engineering",
-    body: "Production React, Next.js, and TypeScript. Accessible, fast, and maintainable. Code a team can build on, not a prototype to throw away.",
+    title: "Frontend & UI/UX",
+    body: "Production React, Next.js, and TypeScript. Dashboards, AI interfaces, and marketing sites that are fast and accessible.",
   },
   {
-    icon: "PenTool",
-    title: "UI/UX & product design",
-    body: "Wireframes to high-fidelity in Figma, user flows, and design systems. Design decisions I can defend, then ship myself.",
+    icon: "GraduationCap",
+    title: "Teaching & workshops",
+    body: "Team upskilling, cohort-based masterclasses, and talks on practical AI, evaluation, and shipping with LLMs.",
   },
   {
-    icon: "Sparkles",
-    title: "AI product interfaces",
-    body: "Chat UIs, RAG dashboards, document workflows, and human-in-the-loop tools that make AI feel trustworthy instead of magic.",
-  },
-  {
-    icon: "LayoutDashboard",
-    title: "SaaS dashboards",
-    body: "Data-dense interfaces that stay readable and navigable: clear hierarchy, real empty and loading states, no clutter.",
-  },
-  {
-    icon: "Rocket",
-    title: "Landing pages",
-    body: "Conversion-focused marketing sites with crisp type and purposeful motion. The kind of first impression that gets a reply.",
+    icon: "LineChart",
+    title: "Growth & digital presence",
+    body: "Landing pages, content, and the technical side of marketing for founders who need to be found and trusted.",
   },
 ] as const;
 
 export const skillGroups = [
   {
-    label: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Motion / Framer"],
+    label: "AI / ML",
+    items: [
+      "LLM training (SFT / RLHF)",
+      "Prompt engineering",
+      "Agentic AI",
+      "RAG",
+      "Trajectory validation",
+      "Model evaluation",
+    ],
   },
   {
-    label: "Design",
-    items: ["UI/UX", "Figma", "Design systems", "Wireframing", "Prototyping"],
+    label: "Engineering",
+    items: ["Python", "FastAPI", "React 19", "Next.js", "SQL", "Docker", "Bash"],
   },
   {
-    label: "AI products",
-    items: ["RAG interfaces", "Chat UIs", "AI dashboards", "Document workflows"],
+    label: "Data & tools",
+    items: ["pandas", "scikit-learn", "Playwright", "Tableau", "Power BI", "Git"],
   },
   {
-    label: "Backend",
-    items: ["FastAPI", "Supabase", "PostgreSQL", "REST APIs"],
+    label: "Foundations",
+    items: ["Computer Science", "Molecular Biology", "AI safety & policy"],
   },
 ] as const;
 
-export const process = [
+// The journey timeline, Mashel's distinctive origin story.
+export const journey = [
   {
-    title: "Understand before pixels",
-    body: "I start with the actual problem and the people who have it: what they're trying to do, and where it breaks. The brief gets sharper before anything gets designed.",
+    period: "2020–2024",
+    title: "A scientist's training",
+    body: "B.Sc. in Molecular & Cellular Biology at Kenyatta University. Lab protocols taught me precision under pressure, a 98% sample-processing success rate, and the habit of trusting evidence over vibes.",
   },
   {
-    title: "Design in the open",
-    body: "Wireframes and high-fidelity in Figma, shared early and often. You see decisions and tradeoffs as they happen, not at a big reveal.",
+    period: "2020–2022",
+    title: "Learning to build",
+    body: "Built Unity game prototypes in C# with AI behaviour scripting and Blender assets. This is where object-oriented thinking and systems design clicked.",
   },
   {
-    title: "Build it for real",
-    body: "I ship the design as production code (responsive, accessible, fast), so what you approved is what goes live, no handoff gap.",
+    period: "2023–2024",
+    title: "Teaching the machines",
+    body: "Evaluated and trained LLMs at Outlier AI, grading RLHF outputs, annotating 200+ code snippets, ranking top 10% for QA accuracy.",
   },
   {
-    title: "Test, then ship",
-    body: "Real states, real devices, real edge cases. The work leaves in a state I'd defend in a studio review.",
+    period: "2025–2026",
+    title: "Frontier work",
+    body: "LLM and video-annotation training for Turing and iMerit: structured frameworks that cut annotation ambiguity, and high-fidelity audits of generative media.",
+  },
+  {
+    period: "Now",
+    title: "Building & giving back",
+    body: "Shipping agentic AI products, finishing a CS degree (University of the People), and helping people build safe superintelligence one piece at a time.",
+  },
+] as const;
+
+// How an engagement works, short, client-facing.
+export const engagement = [
+  {
+    title: "Talk it through",
+    body: "A quick call or WhatsApp chat. You tell me the problem; I tell you honestly whether I'm the right person and how I'd approach it.",
+  },
+  {
+    title: "Scope & agree",
+    body: "A clear plan, timeline, and price before any work starts. No surprises, no vague hourly black holes.",
+  },
+  {
+    title: "Build & hand over",
+    body: "I ship in the open with regular check-ins, then hand over something documented you (or your team) can actually run with.",
   },
 ] as const;
 
 export const testimonials = [
   {
-    // DRAFT — replace with a real quote, name, role, company.
+    // DRAFT, replace with a real quote, name, role, company.
     quote:
-      "Mashel turned a vague idea into a working product faster than I thought possible, and it actually looked and felt finished. The design judgment and the engineering were both there.",
+      "Mashel found edge cases in our model outputs the rest of the team kept missing. The QA writeups were precise enough that engineering could act on them the same day.",
     name: "Client name",
-    role: "Founder, AI startup",
+    role: "ML lead, AI data company",
   },
   {
     // DRAFT
     quote:
-      "Rare to find someone who can sit in a design review and a code review and add value in both. The dashboard he built stayed clean even as the data got messy.",
+      "He took a half-formed idea and shipped a working agentic prototype in weeks. Rare to find someone who can train the model and build the product around it.",
     name: "Client name",
-    role: "Product lead, SaaS",
+    role: "Founder, early-stage startup",
   },
-] as const;
-
-export const stats = [
-  { value: "5+", label: "Years building for the web" },
-  { value: "20+", label: "Products shipped" },
-  { value: "AI-first", label: "Where I focus now" },
 ] as const;

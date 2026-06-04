@@ -1,33 +1,90 @@
-// Central site config. Update socials / contact here — everything reads from this.
-// NOTE: values marked TODO are best-guess placeholders — confirm with Mashel.
+// Central site config. Contact, socials, positioning, everything reads from here.
 
 export const site = {
   name: "Mashel Odera",
-  role: "Frontend developer & UI/UX designer",
-  // One-line value prop used in metadata + hero subline.
+  // Short role used in metadata + nav contexts.
+  role: "AI Specialist, trainer, builder & educator",
+  // The spike, in one line. Used as hero topline + meta description seed.
   tagline:
-    "I design and build AI-ready web experiences: production frontends, SaaS dashboards, and AI product prototypes.",
+    "I train AI, build with it, and teach it, with a scientist's precision. AI specialist in Nairobi working with teams worldwide.",
+  // The personal "why", threaded through the site as a signature line.
+  motto: "We can all build safe superintelligence, one piece at a time.",
   location: "Nairobi, Kenya",
   available: true,
-  availabilityNote: "Open to work · available worldwide",
-  // Used for absolute URLs (OpenGraph, sitemap). Update to your real domain.
-  url: "https://mashelodera.com",
-  email: "hello@mashelodera.com",
-  // TODO: confirm these handles/URLs with Mashel.
+  availabilityNote: "Open for projects · Nairobi & remote worldwide",
+
+  // Absolute URLs (OpenGraph, sitemap). Swap to the custom domain once it's live.
+  url: "https://mashelodera-portfolio.vercel.app",
+
+  email: "mashelodera1@gmail.com",
+  // Digits only, for wa.me links. Display version below.
+  whatsapp: "254791982261",
+  whatsappDisplay: "+254 791 982 261",
+  // Pre-filled WhatsApp opener.
+  whatsappMessage: "Hi Mashel, I found your site and I'd like to talk about a project.",
+
   socials: {
     github: "https://github.com/iamMashel",
     linkedin: "https://www.linkedin.com/in/mashelodera",
-    x: "https://x.com/mashelodera",
+    x: "https://x.com/mashel_odera",
+    instagram: "https://www.instagram.com/iam.mashel/",
+    substack: "https://substack.com/@mashelodera",
   },
-  // Optional: a Calendly / cal.com link for booking, and a resume file in /public.
-  bookingUrl: "", // e.g. "https://cal.com/mashelodera/intro"
-  resumeUrl: "/Mashel-Odera-CV.pdf", // drop the PDF into /public with this name
+
+  // Cal.com / Calendly link for "Book a call". Leave "" to hide the booking CTA.
+  bookingUrl: "", // TODO: paste your booking link, e.g. "https://cal.com/mashelodera/intro"
+  resumeUrl: "/Mashel-Odera-CV.pdf", // PDF lives in /public
+
+  // Newsletter lives on Substack.
+  newsletterUrl: "https://substack.com/@mashelodera",
 } as const;
+
+// Build a wa.me deep link with the pre-filled opener.
+export const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
+  site.whatsappMessage,
+)}`;
 
 export const nav = [
   { label: "Work", href: "/#work" },
   { label: "Services", href: "/#services" },
-  { label: "About", href: "/#about" },
   { label: "Writing", href: "/blog" },
+  { label: "Off the clock", href: "/more" },
   { label: "Contact", href: "/#contact" },
+] as const;
+
+// Personal "Off the clock" pages, surfaced on /more and in the footer.
+export const personalPages = [
+  {
+    href: "/now",
+    label: "Now",
+    blurb: "What I'm focused on this month.",
+    emoji: "🟢",
+  },
+  {
+    href: "/bookshelf",
+    label: "Bookshelf",
+    blurb: "What I'm reading, what I've read, and my honest takes.",
+    emoji: "📚",
+  },
+  {
+    href: "/playground",
+    label: "Playground",
+    blurb: "Side projects, things that made me laugh, small wisdom.",
+    emoji: "🧪",
+  },
+  {
+    href: "/uses",
+    label: "Uses",
+    blurb: "The tools, gear, and stack behind the work.",
+    emoji: "🛠️",
+  },
+] as const;
+
+// Rotating "words of wisdom", the first is the real motto; the rest are
+// seed placeholders. DRAFT: swap in your own lines.
+export const wisdom = [
+  "We can all build safe superintelligence, one piece at a time.",
+  "Precision is a kindness. Sloppy work makes other people do the thinking.",
+  "Learn the boring fundamentals. They compound while the hype cycles.",
+  "Ship the small version. A real thing beats a perfect plan.",
 ] as const;
