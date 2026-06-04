@@ -11,7 +11,8 @@ playground, uses).
 **Design:** "Studio Warm" — a committed clay/terracotta brand on warm neutrals,
 deep espresso-clay drenched hero/footer, Bricolage Grotesque display + Geist text.
 Verified toward WCAG 2.2 AA. The full visual system and positioning live in
-[`DESIGN.md`](./DESIGN.md) and [`PRODUCT.md`](./PRODUCT.md).
+[`DESIGN.md`](./DESIGN.md) and [`PRODUCT.md`](./PRODUCT.md), and a running log of
+what's been built is in [`PROGRESS.md`](./PROGRESS.md).
 
 ## Getting started
 
