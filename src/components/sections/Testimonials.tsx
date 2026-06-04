@@ -12,8 +12,8 @@ export function Testimonials() {
         />
         <Reveal>
           <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-14">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="flex flex-col">
+            {testimonials.map((t, i) => (
+              <figure key={`${t.name}-${i}`} className="flex flex-col">
                 <blockquote className="font-display text-2xl font-medium leading-snug text-ink sm:text-[1.7rem]">
                   <span className="text-accent">“</span>
                   {t.quote}
