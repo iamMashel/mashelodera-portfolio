@@ -120,10 +120,6 @@ export function CommandPalette() {
     );
   }, [q]);
 
-  useEffect(() => {
-    setActive(0);
-  }, [q]);
-
   const run = useCallback(
     (item: Item) => {
       close();
@@ -179,7 +175,10 @@ export function CommandPalette() {
           <input
             ref={inputRef}
             value={q}
-            onChange={(e) => setQ(e.target.value)}
+            onChange={(e) => {
+              setQ(e.target.value);
+              setActive(0);
+            }}
             placeholder="Jump to a page or action…"
             aria-label="Search pages and actions"
             className="h-14 w-full bg-transparent text-ink placeholder:text-ink-muted focus:outline-none"

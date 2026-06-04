@@ -158,18 +158,18 @@ export function Nav() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-1 lg:hidden">
+          <div className="flex items-center gap-0.5 lg:hidden">
             <button
               type="button"
               onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
               aria-label="Open command menu"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-cream"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-cream transition-colors hover:bg-cream/10"
             >
               <Search size={20} />
             </button>
             <button
               type="button"
-              className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-cream"
+              className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full text-cream transition-colors hover:bg-cream/10"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}

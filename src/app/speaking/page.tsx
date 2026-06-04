@@ -6,7 +6,7 @@ import { WhatsappIcon } from "@/components/icons/Brand";
 import { PageHeader } from "@/components/PageHeader";
 import { CTABand } from "@/components/CTABand";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
+import { RevealGroup, RevealItem } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Speaking",

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Play, Pause, Shuffle, Eraser } from "lucide-react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 // Conway's Game of Life. Three rules, endless emergence, a small nod to
 // "build safe superintelligence one piece at a time." Click cells to draw.
@@ -21,7 +22,7 @@ export function GameOfLife() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const gridRef = useRef<Grid>(makeGrid(() => 0));
   const [running, setRunning] = useState(false);
-  const [reduced, setReduced] = useState(false);
+  const reduced = useReducedMotion();
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -63,7 +64,6 @@ export function GameOfLife() {
   }, [draw]);
 
   useEffect(() => {
-    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     gridRef.current = makeGrid(() => (Math.random() > 0.78 ? 1 : 0));
     draw();
   }, [draw]);

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { site, whatsappHref } from "@/lib/site";
+import { whatsappHref } from "@/lib/site";
 import { WhatsappIcon } from "@/components/icons/Brand";
 import { Reveal } from "@/components/Reveal";
 
