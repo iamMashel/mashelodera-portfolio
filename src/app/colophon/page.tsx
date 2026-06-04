@@ -76,8 +76,8 @@ export default function ColophonPage() {
       </section>
       <CTABand
         className="pb-24"
-        title="Want a site that's this considered?"
-        subtitle="Fast, accessible, on-brand, and built to last. That's the default, not the upsell."
+        title="Want a portfolio like this? Hit me up."
+        subtitle="I'll build you one: fast, accessible, on brand, and entirely yours. The craft you're looking at is the default, not the upsell."
       />
     </>
   );

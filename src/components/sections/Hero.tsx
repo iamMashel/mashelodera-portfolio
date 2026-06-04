@@ -78,6 +78,14 @@ export function Hero() {
               ·
             </span>
             <span className="text-cream">iMerit</span>
+            <span aria-hidden className="opacity-40">
+              ·
+            </span>
+            <span className="text-cream">Handshake AI</span>
+            <span aria-hidden className="opacity-40">
+              ·
+            </span>
+            <span className="text-cream">Fortune 500 teams</span>
           </RevealItem>
         </RevealGroup>
 

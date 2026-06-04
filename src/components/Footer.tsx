@@ -103,7 +103,7 @@ export function Footer() {
             © {year} {site.name}
           </p>
           <Link href="/privacy" className="transition-colors hover:text-cream">
-            Privacy
+            Privacy policy
           </Link>
         </div>
       </div>

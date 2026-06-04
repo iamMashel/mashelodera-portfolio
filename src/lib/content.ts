@@ -34,6 +34,8 @@ export const clients = [
   "Turing",
   "Outlier AI",
   "iMerit",
+  "Handshake AI",
+  "Fortune 500 companies",
   "TechUp Africa",
 ] as const;
 
@@ -102,6 +104,11 @@ export const skillGroups = [
 
 // The journey timeline, Mashel's distinctive origin story.
 export const journey = [
+  {
+    period: "Earlier",
+    title: "Paying dues (yes, including KFC)",
+    body: "Before the lab and the models, there was customer-facing work, a stint at KFC included. It taught me speed, composure, and that the customer's problem is the only problem. Underrated training for shipping.",
+  },
   {
     period: "2020–2024",
     title: "A scientist's training",

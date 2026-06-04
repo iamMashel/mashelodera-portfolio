@@ -6,7 +6,7 @@ import { ChevronRight } from "lucide-react";
 import { personalPages } from "@/lib/site";
 
 const labels: Record<string, string> = {
-  "/privacy": "Privacy",
+  "/privacy": "Privacy policy",
   "/blog": "Writing",
   "/more": "Off the clock",
 };

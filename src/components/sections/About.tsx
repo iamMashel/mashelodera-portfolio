@@ -19,7 +19,7 @@ export function About() {
               <div className="overflow-hidden rounded-2xl border border-line">
                 <Image
                   src="/photos/building.jpg"
-                  alt="Mashel with two friends in front of a multi-monitor coding setup"
+                  alt="Mashel and friends in front of a multi-monitor coding setup"
                   width={1500}
                   height={1125}
                   sizes="(max-width: 1024px) 100vw, 420px"

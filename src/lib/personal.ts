@@ -29,7 +29,7 @@ export const now = [
   {
     emoji: "🎧",
     label: "Listening",
-    body: "A rotation of WSJ, No Stupid Questions, Philosophize This, TED Talks Daily, and Tim Keller sermons. The full set lives on my Playground.",
+    body: "A rotation of WSJ, No Stupid Questions, Philosophize This, TED Talks Daily, Tim Keller sermons, and a lot of Dry Bar Comedy. The full set lives on my Playground.",
   },
   {
     emoji: "🏑",
@@ -152,6 +152,7 @@ export const podcasts = [
   { slug: "ted-talks-daily", name: "TED Talks Daily", network: "TED", blurb: "A daily hit of someone smart, excited about one thing." },
   { slug: "second-date-update", name: "Second Date Update", network: "Brooke and Jeffrey", blurb: "My guilty pleasure. Messy, funny, very human." },
   { slug: "timothy-keller", name: "Timothy Keller Sermons", network: "Gospel in Life", blurb: "Thoughtful, generous sermons I come back to for the quieter questions." },
+  { slug: "dry-bar-comedy", name: "Dry Bar Comedy", network: "Angel Studios", blurb: "Clean stand-up I can laugh at without bracing. My reset button after a long build." },
 ] as const;
 
 // A few real photos for the Playground gallery. Captions are editable.
@@ -175,6 +176,16 @@ export const frames = [
     src: "/photos/church-3.jpg",
     alt: "Mashel at a church compound",
     caption: "Somewhere worth standing still.",
+  },
+  {
+    src: "/photos/art.jpg",
+    alt: "Mashel painting on a canvas at an outdoor art event",
+    caption: "A singles event that turned into an afternoon of painting. Turns out I needed the brush more than the small talk.",
+  },
+  {
+    src: "/photos/counsel.jpg",
+    alt: "Mashel standing outside a building in Nairobi",
+    caption: "Good light, good day. Nairobi.",
   },
 ] as const;
 

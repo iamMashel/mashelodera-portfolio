@@ -24,10 +24,11 @@ export default function PrivacyPage() {
             <article className="prose">
               <h2>What this site collects</h2>
               <p>
-                Nothing directly. There are no sign-ups, no contact forms, no
-                analytics scripts, and no advertising or tracking cookies set by
-                this website. You can read every page without giving up any
-                personal information.
+                Almost nothing. There are no accounts, no analytics scripts, and
+                no advertising or tracking cookies set by this website. You can
+                read every page without giving up any personal information. The
+                one exception is the contact form, which you choose to fill in
+                (see below).
               </p>
 
               <h2>Hosting and server logs</h2>
@@ -47,13 +48,22 @@ export default function PrivacyPage() {
                 to load the page.
               </p>
 
+              <h2>The contact form</h2>
+              <p>
+                If you use the contact form, it sends the name, email, and
+                message you enter to my inbox using Resend, an email delivery
+                service, so I can reply. That data is emailed, not saved to a
+                database on this site, and it is processed by Resend under their
+                privacy terms. The form includes a hidden anti-spam field;
+                otherwise it asks for nothing beyond what you type.
+              </p>
+
               <h2>When you contact me</h2>
               <p>
-                If you reach out via WhatsApp, email, or a booking link, you share
-                whatever information you choose to send (your name, message, and
-                contact details). I use it only to reply to you and discuss
-                working together. I do not sell it, and I do not add you to any
-                list without your say-so.
+                However you reach out, by form, WhatsApp, email, or a booking
+                link, you share only what you choose to send. I use it to reply
+                to you and discuss working together. I do not sell it, and I do
+                not add you to any list without your say-so.
               </p>
 
               <h2>Links to other services</h2>
