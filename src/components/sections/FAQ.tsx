@@ -27,7 +27,7 @@ export function FAQ() {
                     <Plus size={16} />
                   </span>
                 </summary>
-                <div className="px-6 pb-6">
+                <div className="faq-answer px-6 pb-6">
                   <p className="measure text-ink-muted">{f.a}</p>
                 </div>
               </details>

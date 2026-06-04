@@ -168,10 +168,10 @@ export function CommandPalette() {
       <button
         aria-label="Close command menu"
         onClick={close}
-        className="absolute inset-0 z-[var(--z-backdrop)] cursor-default bg-ink-invert/50 backdrop-blur-sm"
+        className="cmdk-backdrop absolute inset-0 z-[var(--z-backdrop)] cursor-default bg-ink-invert/50 backdrop-blur-sm"
       />
       <div
-        className="relative z-[var(--z-modal)] w-full max-w-xl overflow-hidden rounded-2xl border border-line bg-bg shadow-[0_40px_90px_-30px_rgba(28,17,7,0.5)]"
+        className="cmdk-panel relative z-[var(--z-modal)] w-full max-w-xl overflow-hidden rounded-2xl border border-line bg-bg shadow-[0_40px_90px_-30px_rgba(28,17,7,0.5)]"
         onKeyDown={onKeyDown}
       >
         <div className="flex items-center gap-3 border-b border-line px-4">

@@ -220,6 +220,119 @@
     opacity: 0.55;
     pointer-events: none;
   }
+
+  /* ---- Motion ----------------------------------------------------------
+     Everything below is visible by default. Animations run only when motion
+     is allowed, so reduced-motion, no-JS, and crawlers always see content. */
+
+  /* Hero entrance: headline lines rise from a clipped baseline, supporting
+     elements stagger up, the accent glow blooms, the portrait wipes in. */
+  .hero-line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.04em; /* breathing room so the mask never clips ink */
+  }
+  .hero-line > span {
+    display: inline-block;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-line > span {
+      animation: hero-line-rise 0.9s var(--ease-out-expo) both;
+      animation-delay: calc(var(--i, 0) * 95ms + 120ms);
+    }
+    .hero-rise {
+      animation: hero-rise 0.8s var(--ease-out-expo) both;
+      animation-delay: calc(var(--i, 0) * 80ms + 80ms);
+    }
+    .hero-bloom {
+      animation: hero-bloom 1.5s var(--ease-out-expo) both;
+    }
+    .hero-portrait {
+      animation: hero-portrait 1.1s var(--ease-out-expo) both;
+      animation-delay: 0.18s;
+    }
+
+    /* FAQ disclosure: answer eases in on open. */
+    details[open] .faq-answer {
+      animation: faq-open 0.34s var(--ease-out-quart) both;
+    }
+
+    /* Command palette: panel scales/fades in over a fading backdrop. */
+    .cmdk-panel {
+      animation: cmdk-panel 0.26s var(--ease-out-quint) both;
+    }
+    .cmdk-backdrop {
+      animation: fade-in 0.2s linear both;
+    }
+  }
+
+  @keyframes hero-line-rise {
+    from {
+      transform: translateY(105%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes hero-bloom {
+    from {
+      opacity: 0;
+      transform: scale(0.55);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes hero-portrait {
+    from {
+      opacity: 0;
+      clip-path: inset(0 0 100% 0 round 1.5rem);
+    }
+    to {
+      opacity: 1;
+      clip-path: inset(0 0 0 0 round 1.5rem);
+    }
+  }
+  @keyframes faq-open {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes cmdk-panel {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 /* ---------------------------------------------------------------------------
