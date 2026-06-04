@@ -9,6 +9,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { CommandPalette } from "@/components/CommandPalette";
 import { Toaster } from "@/components/Toaster";
 import { site } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -91,6 +92,7 @@ export default function RootLayout({
         <CommandPalette />
         <Toaster />
         <KonamiEgg />
+        <Analytics />
       </body>
     </html>
   );
