@@ -24,12 +24,12 @@ export default function PrivacyPage() {
             <article className="prose">
               <h2>What this site collects</h2>
               <p>
-                Almost nothing. There are no accounts, no analytics scripts, and
-                no advertising or tracking cookies set by this website. You can
-                read every page without giving up any personal information. The
-                only things it records are an anonymous visitor tally and
-                whatever you choose to send via the contact form (both explained
-                below).
+                Almost nothing about you personally. There are no accounts and
+                no advertising or cross-site tracking cookies. The site records
+                privacy-friendly aggregate analytics, a visitor tally, and
+                whatever you choose to send via the contact form, all explained
+                below. You can read every page without handing over personal
+                information.
               </p>
 
               <h2>Hosting and server logs</h2>
@@ -49,12 +49,19 @@ export default function PrivacyPage() {
                 you twice; it holds a yes/no flag, nothing that identifies you.
               </p>
 
-              <h2>Visitor count</h2>
+              <h2>Visitor count and analytics</h2>
               <p>
-                The footer shows a running count of visitors. It is one aggregate
-                number incremented in a private datastore: no personal data, no
-                profile, no third-party analytics. The cookie above simply keeps
-                your own visit from being recounted on every reload.
+                The footer shows a running count of visitors: one aggregate
+                number incremented in a private datastore, with no personal data
+                or profile. The cookie above simply keeps your own visit from
+                being recounted on every reload.
+              </p>
+              <p>
+                The site also uses Vercel Web Analytics, which measures aggregate
+                page views and visitor counts <strong>without cookies</strong> and
+                without building a profile of you or tracking you across other
+                sites. It tells me which pages are useful, nothing about who you
+                are.
               </p>
 
               <h2>The contact form</h2>

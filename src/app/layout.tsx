@@ -8,6 +8,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { CommandPalette } from "@/components/CommandPalette";
 import { Toaster } from "@/components/Toaster";
+import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/lib/site";
 
 const geistSans = Geist({
@@ -91,6 +92,7 @@ export default function RootLayout({
         <CommandPalette />
         <Toaster />
         <KonamiEgg />
+        <Analytics />
       </body>
     </html>
   );
