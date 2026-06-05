@@ -13,6 +13,7 @@ import {
   SubstackIcon,
 } from "@/components/icons/Brand";
 import { Tooltip } from "@/components/Tooltip";
+import { NavDropdown } from "@/components/NavDropdown";
 import { nav, site, whatsappHref } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
@@ -118,6 +119,7 @@ export function Nav() {
 
           <ul className="hidden items-center gap-1 lg:flex">
             {nav.map((item) => {
+              if (item.href === "/more") return <NavDropdown key={item.href} />;
               const active = isActive(item.href);
               return (
                 <li key={item.href}>
