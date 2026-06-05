@@ -69,6 +69,41 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+// Structured data so search engines understand "Mashel Odera = AI specialist,
+// Nairobi, these profiles". ld+json is data, not executed script.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  alternateName: "Mashel Odera Ondondi",
+  jobTitle: "AI Specialist",
+  description: site.tagline,
+  url: site.url,
+  image: `${site.url}/mashel.jpg`,
+  email: `mailto:${site.email}`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Nairobi",
+    addressCountry: "KE",
+  },
+  knowsAbout: [
+    "Artificial Intelligence",
+    "LLM training",
+    "RLHF",
+    "Retrieval-augmented generation",
+    "Agentic AI",
+    "Frontend development",
+    "Machine learning",
+  ],
+  sameAs: [
+    site.socials.github,
+    site.socials.linkedin,
+    site.socials.x,
+    site.socials.instagram,
+    site.socials.substack,
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -78,6 +113,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[50] focus:rounded-lg focus:bg-ink focus:px-4 focus:py-2 focus:text-bg"
