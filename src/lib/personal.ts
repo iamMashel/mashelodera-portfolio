@@ -107,6 +107,19 @@ export const books: Book[] = [
   { slug: "the-alignment-problem", title: "The Alignment Problem", author: "Brian Christian", category: "Non-fiction", current: true, take: "Currently reading. The clearest bridge between ML practice and the safety questions I care about." },
 ];
 
+// To-read queue (no covers yet, these are new titles). DRAFT: edit the notes.
+export const readingListSource =
+  "A selection from JP Morgan's Summer Reading List 2026";
+
+export const readingList: { title: string; author: string; note: string }[] = [
+  { title: "The Infinity Machine", author: "Demis Hassabis", note: "DeepMind's founder on where AI goes next. I watched The Thinking Game, so this is the obvious next read." },
+  { title: "AI for Good", author: "Josh Tyrangiel", note: "The grounded, optimistic case for AI that actually helps. Right up my alley." },
+  { title: "How Great Ideas Happen", author: "George Newman", note: "What separates a good idea from a great one. Useful for the work and the writing." },
+  { title: "The Stimulated Mind", author: "Dr. Tommy Wood", note: "A neuroscientist on attention and staying sharp. Relevant to anyone who lives in deep focus." },
+  { title: "Coachable", author: "Ric Bucher", note: "On staying coachable, the trait that quietly compounds over a career." },
+  { title: "Crisis Engineering", author: "Marina Nitze", note: "Fixing things when everything is on fire. Transferable to shipping under pressure." },
+];
+
 // ---- /playground ------------------------------------------------------------
 export const funProjects = [
   {
