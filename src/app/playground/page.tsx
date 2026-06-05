@@ -105,54 +105,40 @@ export default function PlaygroundPage() {
             </RevealGroup>
           </div>
 
-          {/* Made me laugh */}
-          <div className="mt-20">
-            <SectionHeading
-              title="Made me laugh"
-              description="A running list of things online that earned a genuine laugh. Updated when something gets me."
-            />
-            <RevealGroup stagger={60} className="mt-10 flex flex-col">
-              {madeMeLaugh.map((r) => {
-                const content = (
-                  <>
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent-wash text-accent-strong">
-                      <Play size={16} className="translate-x-px" />
-                    </span>
-                    <span className="text-ink group-hover:text-accent-strong">
-                      {r.caption}
-                    </span>
-                    {r.href && (
-                      <ArrowUpRight
-                        size={16}
-                        className="ml-auto text-ink-muted transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      />
-                    )}
-                  </>
-                );
-                return (
-                  <RevealItem key={r.caption}>
-                    {r.href ? (
+          {/* Made me laugh — only renders once real links exist (no empty placeholders). */}
+          {madeMeLaugh.some((r) => r.href) && (
+            <div className="mt-20">
+              <SectionHeading
+                title="Made me laugh"
+                description="A running list of things online that earned a genuine laugh."
+              />
+              <RevealGroup stagger={60} className="mt-10 flex flex-col">
+                {madeMeLaugh
+                  .filter((r) => r.href)
+                  .map((r) => (
+                    <RevealItem key={r.caption}>
                       <a
                         href={r.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="group flex items-center gap-4 border-b border-line py-5 transition-colors"
+                        className="group flex items-center gap-4 border-b border-line py-5 transition-colors hover:bg-surface/60"
                       >
-                        {content}
+                        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent-wash text-accent-strong">
+                          <Play size={16} className="translate-x-px" />
+                        </span>
+                        <span className="text-ink group-hover:text-accent-strong">
+                          {r.caption}
+                        </span>
+                        <ArrowUpRight
+                          size={16}
+                          className="ml-auto text-ink-muted transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        />
                       </a>
-                    ) : (
-                      <div className="group flex items-center gap-4 border-b border-line py-5">
-                        {content}
-                      </div>
-                    )}
-                  </RevealItem>
-                );
-              })}
-            </RevealGroup>
-            <p className="mt-4 text-sm text-ink-muted">
-              More going up as I save them.
-            </p>
-          </div>
+                    </RevealItem>
+                  ))}
+              </RevealGroup>
+            </div>
+          )}
 
           {/* A few frames */}
           <div className="mt-20">
