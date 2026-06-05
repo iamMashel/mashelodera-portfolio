@@ -8,6 +8,8 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { CommandPalette } from "@/components/CommandPalette";
 import { Toaster } from "@/components/Toaster";
+import { RouteProgress } from "@/components/RouteProgress";
+import { CookieConsent } from "@/components/CookieConsent";
 import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/lib/site";
 
@@ -82,6 +84,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <RouteProgress />
         <ScrollProgress />
         <Nav />
         <main id="main" className="flex-1">
@@ -91,6 +94,7 @@ export default function RootLayout({
         <BackToTop />
         <CommandPalette />
         <Toaster />
+        <CookieConsent />
         <KonamiEgg />
         <Analytics />
       </body>

@@ -50,6 +50,12 @@ and a contact form that emails via Resend.
 
 ## Milestones (newest first)
 
+### More UX patterns + privacy
+Audited the full uxpatterns.dev catalog against the site and added the ones that
+fit: **share buttons** (blog + case studies), a **route-change progress bar**,
+**tooltips** on icon-only controls, and a **cookie consent banner** (the visitor
+cookie is now set only after consent). Added **Vercel Web Analytics** (cookieless).
+
 ### Visitor counter, Roadbuck, real shoutouts
 - **Visitor counter** in the footer — a real count backed by Upstash Redis
   (atomic `INCR`, one first-party cookie so people aren't counted twice). Hides

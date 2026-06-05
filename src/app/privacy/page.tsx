@@ -46,7 +46,9 @@ export default function PrivacyPage() {
               <p>
                 No advertising or tracking cookies. The site sets a single
                 first-party cookie purely so the visitor counter does not count
-                you twice; it holds a yes/no flag, nothing that identifies you.
+                you twice, and only after you accept the cookie notice. It holds
+                a yes/no flag, nothing that identifies you; decline and no cookie
+                is set.
               </p>
 
               <h2>Visitor count and analytics</h2>

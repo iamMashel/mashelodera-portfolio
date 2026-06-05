@@ -12,6 +12,7 @@ import {
   InstagramIcon,
   SubstackIcon,
 } from "@/components/icons/Brand";
+import { Tooltip } from "@/components/Tooltip";
 import { nav, site, whatsappHref } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
@@ -78,15 +79,17 @@ export function Nav() {
           <ul className="flex items-center gap-4">
             {socials.map(({ label, href, Icon }) => (
               <li key={label}>
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label={label}
-                  className="block transition-colors hover:text-cream"
-                >
-                  <Icon size={15} />
-                </a>
+                <Tooltip label={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={label}
+                    className="block transition-colors hover:text-cream"
+                  >
+                    <Icon size={15} />
+                  </a>
+                </Tooltip>
               </li>
             ))}
           </ul>

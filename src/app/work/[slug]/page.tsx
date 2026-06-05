@@ -7,6 +7,7 @@ import { projects, getProject } from "@/lib/projects";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { Tag } from "@/components/Tag";
 import { Button } from "@/components/Button";
+import { ShareButtons } from "@/components/ShareButtons";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -211,6 +212,11 @@ export default async function CaseStudy({
             <Tag key={t}>{t}</Tag>
           ))}
         </div>
+      </div>
+
+      {/* Share */}
+      <div className="mt-10">
+        <ShareButtons url={`${site.url}/work/${slug}`} title={`${project.name} — ${project.tagline}`} />
       </div>
 
       {/* Next + CTA */}

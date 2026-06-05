@@ -6,6 +6,7 @@ import { getAllPosts, getPost, formatDate } from "@/lib/posts";
 import { Tag } from "@/components/Tag";
 import { Button } from "@/components/Button";
 import { BlogToc } from "@/components/BlogToc";
+import { ShareButtons } from "@/components/ShareButtons";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -66,6 +67,9 @@ export default async function PostPage({
             ))}
           </div>
         )}
+        <div className="mt-7 border-t border-line pt-5">
+          <ShareButtons url={`${site.url}/blog/${slug}`} title={post.title} />
+        </div>
       </header>
 
       <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_15rem]">

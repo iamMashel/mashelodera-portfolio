@@ -41,6 +41,7 @@
   --z-backdrop: 30;
   --z-modal: 40;
   --z-toast: 50;
+  --z-tooltip: 60;
 }
 
 /* ---------------------------------------------------------------------------
@@ -331,6 +332,37 @@
     }
     to {
       opacity: 1;
+    }
+  }
+
+  /* Route navigation bar (remounts per route via key). */
+  .route-bar {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    height: 3px;
+    width: 0;
+    background: var(--color-accent-bright);
+    z-index: var(--z-tooltip);
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .route-bar {
+      animation: route-load 0.8s var(--ease-out-quint) forwards;
+    }
+  }
+  @keyframes route-load {
+    0% {
+      width: 0;
+      opacity: 1;
+    }
+    75% {
+      width: 92%;
+      opacity: 1;
+    }
+    100% {
+      width: 100%;
+      opacity: 0;
     }
   }
 }

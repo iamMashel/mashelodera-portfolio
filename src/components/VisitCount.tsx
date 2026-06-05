@@ -13,14 +13,30 @@ export function VisitCount() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/visit", { method: "POST" })
-      .then((r) => r.json())
-      .then((d) => {
-        if (!cancelled && typeof d.total === "number") setTotal(d.total);
-      })
-      .catch(() => {});
+    const record = () => {
+      let accepted = false;
+      try {
+        accepted = localStorage.getItem("cookie-consent") === "accepted";
+      } catch {
+        /* storage blocked */
+      }
+      if (!accepted) return;
+      fetch("/api/visit", { method: "POST" })
+        .then((r) => r.json())
+        .then((d) => {
+          if (!cancelled && typeof d.total === "number") setTotal(d.total);
+        })
+        .catch(() => {});
+    };
+    // Count returning (already-consented) visitors now; new ones after they accept.
+    record();
+    const onConsent = (e: Event) => {
+      if ((e as CustomEvent).detail === "accepted") record();
+    };
+    window.addEventListener("cookie-consent", onConsent);
     return () => {
       cancelled = true;
+      window.removeEventListener("cookie-consent", onConsent);
     };
   }, []);
 
