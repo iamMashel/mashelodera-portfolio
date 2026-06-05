@@ -1,4 +1,4 @@
-// "Off the clock" content for /now, /bookshelf, /playground, /uses.
+// "Off the clock" content for /now, /bookshelf, /playground, /toolkit.
 // Most of this is SEED placeholder content (marked DRAFT) so the pages feel
 // alive now, swap in your real books, links, and notes any time.
 
@@ -202,10 +202,11 @@ export const frames = [
   },
 ] as const;
 
-// ---- /uses ------------------------------------------------------------------
-export const uses = [
+// ---- /toolkit ---------------------------------------------------------------
+export const toolkit = [
   {
     category: "Editor & environment",
+    icon: "Terminal",
     items: [
       { name: "Linux / Ubuntu", note: "Daily driver. Everything runs here." },
       { name: "VS Code", note: "With the extensions kept to a sane minimum." },
@@ -215,6 +216,7 @@ export const uses = [
   },
   {
     category: "Languages & frameworks",
+    icon: "Code2",
     items: [
       { name: "Python", note: "FastAPI, pandas, scikit-learn, my default for AI work." },
       { name: "React 19 + Next.js", note: "For interfaces and full-stack apps." },
@@ -224,6 +226,7 @@ export const uses = [
   },
   {
     category: "AI & data",
+    icon: "Database",
     items: [
       { name: "Playwright", note: "Automation and the eyes of vision agents." },
       { name: "RAG + vector retrieval", note: "Grounding answers in real sources." },
@@ -233,6 +236,7 @@ export const uses = [
   },
   {
     category: "Off-screen",
+    icon: "Gamepad2",
     items: [
       { name: "Blender", note: "Leftover from game-dev days; still fun." },
       { name: "A hockey stick", note: "Striker. Weekends only." },

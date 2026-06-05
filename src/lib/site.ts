@@ -74,8 +74,8 @@ export const personalPages = [
     emoji: "🧪",
   },
   {
-    href: "/uses",
-    label: "Uses",
+    href: "/toolkit",
+    label: "Toolkit",
     blurb: "The tools, gear, and stack behind the work.",
     emoji: "🛠️",
   },

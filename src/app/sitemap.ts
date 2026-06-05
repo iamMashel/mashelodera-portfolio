@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/now",
     "/bookshelf",
     "/playground",
-    "/uses",
+    "/toolkit",
     "/recommends",
     "/privacy",
   ].map((path) => ({

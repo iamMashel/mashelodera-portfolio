@@ -23,7 +23,7 @@ const groups: { label: string; blurb: string; hrefs: string[] }[] = [
   {
     label: "Tinkering",
     blurb: "Where curiosity goes when it's off the clock.",
-    hrefs: ["/lab", "/playground", "/uses"],
+    hrefs: ["/lab", "/playground", "/toolkit"],
   },
   {
     label: "Me & the work",

@@ -31,7 +31,7 @@ decorative.
 /now             what I'm focused on this month
 /bookshelf       interactive book grid (genres, search, flip-for-take)
 /playground      side projects, podcasts, made-me-laugh, frames gallery, anecdotes
-/uses            tools, languages, gear
+/toolkit          tools, languages, gear
 /lab             interactive experiments (Game of Life, toy tokenizer)
 /timeline        the long way round (biology → game dev → AI)
 /interesting     curated links
