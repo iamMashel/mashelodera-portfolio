@@ -19,26 +19,29 @@ export default function NowPage() {
       />
       <section className="section-pad">
         <div className="container-page">
-          <RevealGroup stagger={80} className="mx-auto max-w-2xl">
-            <ul className="flex flex-col">
+          {/* A vertical feed: each item anchored by a clay emoji badge on a
+              hairline rail. Deliberately not the boxed card grid used elsewhere. */}
+          <RevealGroup stagger={90} className="mx-auto max-w-2xl">
+            <ol className="relative ml-3 border-l border-line">
               {now.map((item) => (
                 <RevealItem
                   as="li"
                   key={item.label}
-                  className="flex gap-5 border-b border-line py-7 first:pt-0 last:border-b-0"
+                  className="relative pb-9 pl-9 last:pb-0"
                 >
-                  <span className="text-2xl" aria-hidden="true">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -left-[1.1rem] top-0 grid h-9 w-9 place-items-center rounded-full border border-line bg-accent-wash text-lg shadow-[0_1px_2px_rgba(28,17,7,0.06)]"
+                  >
                     {item.emoji}
                   </span>
-                  <div>
-                    <h2 className="font-display text-lg font-semibold text-ink">
-                      {item.label}
-                    </h2>
-                    <p className="mt-1 text-ink-muted">{item.body}</p>
-                  </div>
+                  <h2 className="font-display text-xl font-semibold text-ink">
+                    {item.label}
+                  </h2>
+                  <p className="mt-1.5 text-lg text-ink-muted">{item.body}</p>
                 </RevealItem>
               ))}
-            </ul>
+            </ol>
           </RevealGroup>
         </div>
       </section>

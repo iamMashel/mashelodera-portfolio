@@ -19,22 +19,27 @@ export default function InterestingPage() {
         intro="The internet is still mostly wonderful if you know where to look. This is a living stash of people I learn from and things worth your attention."
       />
       <section className="section-pad">
-        <div className="container-page flex flex-col gap-14">
+        <div className="container-page flex flex-col gap-16">
           {linkGroups.map((group) => (
             <div key={group.label}>
-              <h2 className="mb-6 border-b border-line pb-4 font-display text-2xl font-semibold text-ink">
-                {group.label}
-              </h2>
-              <RevealGroup stagger={60} className="flex flex-col">
+              <div className="flex items-baseline justify-between gap-4 border-b border-line pb-4">
+                <h2 className="font-display text-2xl font-semibold text-ink">
+                  {group.label}
+                </h2>
+                <span className="font-mono text-xs text-ink-muted">
+                  {String(group.links.length).padStart(2, "0")}
+                </span>
+              </div>
+              <RevealGroup stagger={60} className="mt-2 flex flex-col">
                 {group.links.map((l) => (
                   <RevealItem key={l.url}>
                     <a
                       href={l.url}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="group grid gap-1 border-b border-line py-5 transition-colors sm:grid-cols-[14rem_1fr] sm:items-baseline"
+                      className="group -mx-3 grid gap-1 rounded-xl border-b border-line px-3 py-5 transition-colors hover:border-transparent hover:bg-accent-wash/50 sm:grid-cols-[15rem_1fr] sm:items-baseline"
                     >
-                      <span className="inline-flex items-center gap-1.5 font-medium text-ink group-hover:text-accent-strong">
+                      <span className="inline-flex items-center gap-1.5 font-display text-lg font-medium text-ink group-hover:text-accent-strong">
                         {l.name}
                         <ArrowUpRight
                           size={15}
