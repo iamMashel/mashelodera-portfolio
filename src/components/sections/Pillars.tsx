@@ -4,6 +4,9 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 
 const icons: Record<string, LucideIcon> = { Brain, Boxes, GraduationCap };
 
+// Deliberately NOT the boxed hairline-card grid used elsewhere: three columns
+// led by an oversized clay verb, split by hairline dividers. This is the spike,
+// so it should read differently from the services menu.
 export function Pillars() {
   return (
     <section className="section-pad scroll-mt-20">
@@ -17,30 +20,28 @@ export function Pillars() {
 
         <RevealGroup
           stagger={110}
-          className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3"
+          className="mt-14 grid gap-y-12 md:grid-cols-3 md:gap-y-0 md:divide-x md:divide-line"
         >
           {pillars.map((p) => {
             const Icon = icons[p.icon];
             return (
               <RevealItem
                 key={p.key}
-                className="flex flex-col gap-5 bg-bg p-8"
+                className="flex flex-col gap-4 md:px-9 md:first:pl-0 md:last:pr-0"
               >
-                <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent-wash text-accent-strong">
-                    {Icon && <Icon size={20} strokeWidth={1.75} />}
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent-strong">
+                <span className="flex items-center gap-3">
+                  <span className="font-display text-[2.75rem] font-semibold leading-none tracking-tight text-accent">
                     {p.kicker}
                   </span>
-                </div>
-                <h3 className="font-display text-2xl font-semibold text-ink">
+                  {Icon && (
+                    <Icon size={22} strokeWidth={1.75} className="text-accent-strong/70" />
+                  )}
+                </span>
+                <h3 className="font-display text-xl font-semibold text-ink">
                   {p.title}
                 </h3>
                 <p className="text-ink-muted">{p.body}</p>
-                <p className="mt-auto border-t border-line pt-4 text-sm text-ink">
-                  {p.proof}
-                </p>
+                <p className="mt-auto pt-2 text-sm text-ink">{p.proof}</p>
               </RevealItem>
             );
           })}
